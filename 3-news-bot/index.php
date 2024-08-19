@@ -1,10 +1,10 @@
 <?php
-//  https://api.telegram.org/bot/setWebhook?url=https://13f2-178-131-152-128.ngrok-free.app/news-bot/
+//  https://api.telegram.org/bot7225095237:AAEhrmI9i0LY2g7d-IV8Yl35wP9eHByL6pg/setWebhook?url=https://137b-178-131-155-45.ngrok-free.app/4-crypto-bot/
 require_once 'Telegram.php';
 require_once 'functions.php';
 
 
-$telegram = new Telegram('', proxy: [
+$telegram = new Telegram('7502866540:AAGWCx5m0qCWz3zsZcmj0VEZuzwCkh6Pk90', proxy: [
     'url' => '127.0.0.1',
     'port' => '12334'
 ]);
