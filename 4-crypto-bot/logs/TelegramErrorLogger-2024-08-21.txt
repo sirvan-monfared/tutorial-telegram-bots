@@ -1,0 +1,34 @@
+============[Date]============
+[ 2024-08-21 16:21:56  UTC ] 
+==========[Response]==========
+ok:			False
+error_code:		400
+description:		Bad Request: message to edit not found
+=========[Sent Data]==========
+[ref]
+ref.update_id= 47390786
+ref.message.message_id= 83
+ref.message.from.id= 937286507
+ref.message.from.is_bot= false
+ref.message.from.first_name= لاراپلاس | laraplus.ir
+ref.message.from.username= laraplus_ir
+ref.message.from.language_code= en
+ref.message.chat.id= 937286507
+ref.message.chat.first_name= لاراپلاس | laraplus.ir
+ref.message.chat.username= laraplus_ir
+ref.message.chat.type= private
+ref.message.date= 1724257319
+ref.message.text= /currency/safbgf4
+
+
+[ref]
+ref.text= دستور وارد شده معتبر نیست ❌
+
+
+============[Trace]===========
+#0 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(1797): TelegramErrorLogger::log(Array, Array)
+#1 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(119): Telegram->sendAPIRequest('https://api.tel...', Array)
+#2 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(687): Telegram->endpoint('editMessageText', Array)
+#3 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\index.php(80): Telegram->editMessageText(Array)
+#4 {main}
+
