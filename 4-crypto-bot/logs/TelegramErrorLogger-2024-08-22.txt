@@ -1,0 +1,368 @@
+============[Date]============
+[ 2024-08-22 15:12:20  UTC ] 
+==========[Response]==========
+ok:			False
+error_code:		400
+description:		Bad Request: can't parse inline keyboard button: Field "callback_data" must be of type String
+=========[Sent Data]==========
+[ref]
+ref.update_id= 47390812
+ref.callback_query.id= 4025614895441765855
+ref.callback_query.from.id= 937286507
+ref.callback_query.from.is_bot= false
+ref.callback_query.from.first_name= لاراپلاس | laraplus.ir
+ref.callback_query.from.username= laraplus_ir
+ref.callback_query.from.language_code= en
+ref.callback_query.message.message_id= 118
+ref.callback_query.message.from.id= 7225095237
+ref.callback_query.message.from.is_bot= true
+ref.callback_query.message.from.first_name= ربات نمایش قیمت لحظه ای رمزارزها
+ref.callback_query.message.from.username= larapluscryptobot
+ref.callback_query.message.chat.id= 937286507
+ref.callback_query.message.chat.first_name= لاراپلاس | laraplus.ir
+ref.callback_query.message.chat.username= laraplus_ir
+ref.callback_query.message.chat.type= private
+ref.callback_query.message.date= 1724339496
+ref.callback_query.message.text= برای شروع روی لینک زیر کلیک کنید
+ref.callback_query.message.reply_markup.inline_keyboard.0.0.text= مشاهده لیست ارزها
+ref.callback_query.message.reply_markup.inline_keyboard.0.0.callback_data= /home
+ref.callback_query.chat_instance= 775567123105701538
+ref.callback_query.data= /home
+
+
+[ref]
+ref.reply_markup= {"inline_keyboard":[[{"text":0,"callback_data":{"\u062f\u0644\u0627\u0631":"\/currency\/dollar","\u0633\u06a9\u0647":"\/currency\/coin"}}],[{"text":"\u0628\u06cc\u062a \u06a9\u0648\u06cc\u0646","callback_data":"\/crypto\/BTC"},{"text":"\u0627\u062a\u0631\u06cc\u0648\u0645","callback_data":"\/crypto\/ETH"}],[{"text":"\u0628\u06cc\u062a \u06a9\u0648\u06cc\u0646 \u06a9\u0634","callback_data":"\/crypto\/BCH"},{"text":"\u0644\u0627\u06cc\u062a \u06a9\u0648\u06cc\u0646","callback_data":"\/crypto\/LTC"}],[{"text":"\u062f\u0634","callback_data":"\/crypto\/DASH"},{"text":"\u062f\u0648\u062c \u06a9\u0648\u06cc\u0646","callback_data":"\/crypto\/DOGE"}],[{"text":"\u062a\u062a\u0631","callback_data":"\/crypto\/USDT"},{"text":"\u0631\u06cc\u067e\u0644","callback_data":"\/crypto\/XRP"}],[{"text":"\u062a\u0631\u0648\u0646","callback_data":"\/crypto\/TRX"},{"text":"\u0627\u0633\u062a\u0644\u0627\u0631","callback_data":"\/crypto\/XLM"}]]}
+ref.text= لطفا روی یکی از گزینه های زیر کلیک کنید
+ref.message_id= 119
+
+
+============[Trace]===========
+#0 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(1797): TelegramErrorLogger::log(Array, Array)
+#1 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(119): Telegram->sendAPIRequest('https://api.tel...', Array)
+#2 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(177): Telegram->endpoint('sendMessage', Array)
+#3 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\app\Services\TelegramService.php(49): Telegram->sendMessage(Array)
+#4 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\index.php(46): App\Services\TelegramService->editMessage('\xD9\x84\xD8\xB7\xD9\x81\xD8\xA7 \xD8\xB1\xD9\x88\xDB\x8C...', '{"inline_keyboa...', 119)
+#5 {main}
+
+============[Date]============
+[ 2024-08-22 15:12:47  UTC ] 
+==========[Response]==========
+ok:			False
+error_code:		400
+description:		Bad Request: can't parse inline keyboard button: Field "callback_data" must be of type String
+=========[Sent Data]==========
+[ref]
+ref.update_id= 47390814
+ref.callback_query.id= 4025614895567340621
+ref.callback_query.from.id= 937286507
+ref.callback_query.from.is_bot= false
+ref.callback_query.from.first_name= لاراپلاس | laraplus.ir
+ref.callback_query.from.username= laraplus_ir
+ref.callback_query.from.language_code= en
+ref.callback_query.message.message_id= 121
+ref.callback_query.message.from.id= 7225095237
+ref.callback_query.message.from.is_bot= true
+ref.callback_query.message.from.first_name= ربات نمایش قیمت لحظه ای رمزارزها
+ref.callback_query.message.from.username= larapluscryptobot
+ref.callback_query.message.chat.id= 937286507
+ref.callback_query.message.chat.first_name= لاراپلاس | laraplus.ir
+ref.callback_query.message.chat.username= laraplus_ir
+ref.callback_query.message.chat.type= private
+ref.callback_query.message.date= 1724339559
+ref.callback_query.message.text= برای شروع روی لینک زیر کلیک کنید
+ref.callback_query.message.reply_markup.inline_keyboard.0.0.text= مشاهده لیست ارزها
+ref.callback_query.message.reply_markup.inline_keyboard.0.0.callback_data= /home
+ref.callback_query.chat_instance= 775567123105701538
+ref.callback_query.data= /home
+
+
+[ref]
+ref.reply_markup= {"inline_keyboard":[[{"text":0,"callback_data":{"\u062f\u0644\u0627\u0631":"\/currency\/dollar","\u0633\u06a9\u0647":"\/currency\/coin"}}],[{"text":"\u0628\u06cc\u062a \u06a9\u0648\u06cc\u0646","callback_data":"\/crypto\/BTC"},{"text":"\u0627\u062a\u0631\u06cc\u0648\u0645","callback_data":"\/crypto\/ETH"}],[{"text":"\u0628\u06cc\u062a \u06a9\u0648\u06cc\u0646 \u06a9\u0634","callback_data":"\/crypto\/BCH"},{"text":"\u0644\u0627\u06cc\u062a \u06a9\u0648\u06cc\u0646","callback_data":"\/crypto\/LTC"}],[{"text":"\u062f\u0634","callback_data":"\/crypto\/DASH"},{"text":"\u062f\u0648\u062c \u06a9\u0648\u06cc\u0646","callback_data":"\/crypto\/DOGE"}],[{"text":"\u062a\u062a\u0631","callback_data":"\/crypto\/USDT"},{"text":"\u0631\u06cc\u067e\u0644","callback_data":"\/crypto\/XRP"}],[{"text":"\u062a\u0631\u0648\u0646","callback_data":"\/crypto\/TRX"},{"text":"\u0627\u0633\u062a\u0644\u0627\u0631","callback_data":"\/crypto\/XLM"}]]}
+ref.text= لطفا روی یکی از گزینه های زیر کلیک کنید
+ref.message_id= 122
+
+
+============[Trace]===========
+#0 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(1797): TelegramErrorLogger::log(Array, Array)
+#1 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(119): Telegram->sendAPIRequest('https://api.tel...', Array)
+#2 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(177): Telegram->endpoint('sendMessage', Array)
+#3 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\app\Services\TelegramService.php(49): Telegram->sendMessage(Array)
+#4 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\index.php(46): App\Services\TelegramService->editMessage('\xD9\x84\xD8\xB7\xD9\x81\xD8\xA7 \xD8\xB1\xD9\x88\xDB\x8C...', '{"inline_keyboa...', 122)
+#5 {main}
+
+============[Date]============
+[ 2024-08-22 15:14:04  UTC ] 
+==========[Response]==========
+ok:			False
+error_code:		400
+description:		Bad Request: can't parse inline keyboard button: Field "callback_data" must be of type String
+=========[Sent Data]==========
+[ref]
+ref.update_id= 47390815
+ref.callback_query.id= 4025614894756244430
+ref.callback_query.from.id= 937286507
+ref.callback_query.from.is_bot= false
+ref.callback_query.from.first_name= لاراپلاس | laraplus.ir
+ref.callback_query.from.username= laraplus_ir
+ref.callback_query.from.language_code= en
+ref.callback_query.message.message_id= 121
+ref.callback_query.message.from.id= 7225095237
+ref.callback_query.message.from.is_bot= true
+ref.callback_query.message.from.first_name= ربات نمایش قیمت لحظه ای رمزارزها
+ref.callback_query.message.from.username= larapluscryptobot
+ref.callback_query.message.chat.id= 937286507
+ref.callback_query.message.chat.first_name= لاراپلاس | laraplus.ir
+ref.callback_query.message.chat.username= laraplus_ir
+ref.callback_query.message.chat.type= private
+ref.callback_query.message.date= 1724339559
+ref.callback_query.message.text= برای شروع روی لینک زیر کلیک کنید
+ref.callback_query.message.reply_markup.inline_keyboard.0.0.text= مشاهده لیست ارزها
+ref.callback_query.message.reply_markup.inline_keyboard.0.0.callback_data= /home
+ref.callback_query.chat_instance= 775567123105701538
+ref.callback_query.data= /home
+
+
+[ref]
+ref.reply_markup= {"inline_keyboard":[[{"text":0,"callback_data":{"\u062f\u0644\u0627\u0631":"\/currency\/dollar","\u0633\u06a9\u0647":"\/currency\/coin"}}],[{"text":"\u0628\u06cc\u062a \u06a9\u0648\u06cc\u0646","callback_data":"\/crypto\/BTC"},{"text":"\u0627\u062a\u0631\u06cc\u0648\u0645","callback_data":"\/crypto\/ETH"}],[{"text":"\u0628\u06cc\u062a \u06a9\u0648\u06cc\u0646 \u06a9\u0634","callback_data":"\/crypto\/BCH"},{"text":"\u0644\u0627\u06cc\u062a \u06a9\u0648\u06cc\u0646","callback_data":"\/crypto\/LTC"}],[{"text":"\u062f\u0634","callback_data":"\/crypto\/DASH"},{"text":"\u062f\u0648\u062c \u06a9\u0648\u06cc\u0646","callback_data":"\/crypto\/DOGE"}],[{"text":"\u062a\u062a\u0631","callback_data":"\/crypto\/USDT"},{"text":"\u0631\u06cc\u067e\u0644","callback_data":"\/crypto\/XRP"}],[{"text":"\u062a\u0631\u0648\u0646","callback_data":"\/crypto\/TRX"},{"text":"\u0627\u0633\u062a\u0644\u0627\u0631","callback_data":"\/crypto\/XLM"}]]}
+ref.text= لطفا روی یکی از گزینه های زیر کلیک کنید
+ref.message_id= 124
+
+
+============[Trace]===========
+#0 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(1797): TelegramErrorLogger::log(Array, Array)
+#1 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(119): Telegram->sendAPIRequest('https://api.tel...', Array)
+#2 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(177): Telegram->endpoint('sendMessage', Array)
+#3 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\app\Services\TelegramService.php(49): Telegram->sendMessage(Array)
+#4 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\index.php(48): App\Services\TelegramService->editMessage('\xD9\x84\xD8\xB7\xD9\x81\xD8\xA7 \xD8\xB1\xD9\x88\xDB\x8C...', '{"inline_keyboa...', 124)
+#5 {main}
+
+============[Date]============
+[ 2024-08-22 15:14:16  UTC ] 
+==========[Response]==========
+ok:			False
+error_code:		400
+description:		Bad Request: can't parse inline keyboard button: Field "callback_data" must be of type String
+=========[Sent Data]==========
+[ref]
+ref.update_id= 47390817
+ref.callback_query.id= 4025614897867490106
+ref.callback_query.from.id= 937286507
+ref.callback_query.from.is_bot= false
+ref.callback_query.from.first_name= لاراپلاس | laraplus.ir
+ref.callback_query.from.username= laraplus_ir
+ref.callback_query.from.language_code= en
+ref.callback_query.message.message_id= 125
+ref.callback_query.message.from.id= 7225095237
+ref.callback_query.message.from.is_bot= true
+ref.callback_query.message.from.first_name= ربات نمایش قیمت لحظه ای رمزارزها
+ref.callback_query.message.from.username= larapluscryptobot
+ref.callback_query.message.chat.id= 937286507
+ref.callback_query.message.chat.first_name= لاراپلاس | laraplus.ir
+ref.callback_query.message.chat.username= laraplus_ir
+ref.callback_query.message.chat.type= private
+ref.callback_query.message.date= 1724339645
+ref.callback_query.message.text= برای شروع روی لینک زیر کلیک کنید
+ref.callback_query.message.reply_markup.inline_keyboard.0.0.text= مشاهده لیست ارزها
+ref.callback_query.message.reply_markup.inline_keyboard.0.0.callback_data= /home
+ref.callback_query.chat_instance= 775567123105701538
+ref.callback_query.data= /home
+
+
+[ref]
+ref.reply_markup= {"inline_keyboard":[[{"text":0,"callback_data":{"\u062f\u0644\u0627\u0631":"\/currency\/dollar","\u0633\u06a9\u0647":"\/currency\/coin"}}],[{"text":"\u0628\u06cc\u062a \u06a9\u0648\u06cc\u0646","callback_data":"\/crypto\/BTC"},{"text":"\u0627\u062a\u0631\u06cc\u0648\u0645","callback_data":"\/crypto\/ETH"}],[{"text":"\u0628\u06cc\u062a \u06a9\u0648\u06cc\u0646 \u06a9\u0634","callback_data":"\/crypto\/BCH"},{"text":"\u0644\u0627\u06cc\u062a \u06a9\u0648\u06cc\u0646","callback_data":"\/crypto\/LTC"}],[{"text":"\u062f\u0634","callback_data":"\/crypto\/DASH"},{"text":"\u062f\u0648\u062c \u06a9\u0648\u06cc\u0646","callback_data":"\/crypto\/DOGE"}],[{"text":"\u062a\u062a\u0631","callback_data":"\/crypto\/USDT"},{"text":"\u0631\u06cc\u067e\u0644","callback_data":"\/crypto\/XRP"}],[{"text":"\u062a\u0631\u0648\u0646","callback_data":"\/crypto\/TRX"},{"text":"\u0627\u0633\u062a\u0644\u0627\u0631","callback_data":"\/crypto\/XLM"}]]}
+ref.text= لطفا روی یکی از گزینه های زیر کلیک کنید
+ref.message_id= 126
+
+
+============[Trace]===========
+#0 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(1797): TelegramErrorLogger::log(Array, Array)
+#1 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(119): Telegram->sendAPIRequest('https://api.tel...', Array)
+#2 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(177): Telegram->endpoint('sendMessage', Array)
+#3 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\app\Services\TelegramService.php(49): Telegram->sendMessage(Array)
+#4 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\index.php(48): App\Services\TelegramService->editMessage('\xD9\x84\xD8\xB7\xD9\x81\xD8\xA7 \xD8\xB1\xD9\x88\xDB\x8C...', '{"inline_keyboa...', 126)
+#5 {main}
+
+============[Date]============
+[ 2024-08-22 15:16:03  UTC ] 
+==========[Response]==========
+ok:			False
+error_code:		400
+description:		Bad Request: can't parse inline keyboard button: Field "callback_data" must be of type String
+=========[Sent Data]==========
+[ref]
+ref.update_id= 47390819
+ref.callback_query.id= 4025614897887860747
+ref.callback_query.from.id= 937286507
+ref.callback_query.from.is_bot= false
+ref.callback_query.from.first_name= لاراپلاس | laraplus.ir
+ref.callback_query.from.username= laraplus_ir
+ref.callback_query.from.language_code= en
+ref.callback_query.message.message_id= 128
+ref.callback_query.message.from.id= 7225095237
+ref.callback_query.message.from.is_bot= true
+ref.callback_query.message.from.first_name= ربات نمایش قیمت لحظه ای رمزارزها
+ref.callback_query.message.from.username= larapluscryptobot
+ref.callback_query.message.chat.id= 937286507
+ref.callback_query.message.chat.first_name= لاراپلاس | laraplus.ir
+ref.callback_query.message.chat.username= laraplus_ir
+ref.callback_query.message.chat.type= private
+ref.callback_query.message.date= 1724339755
+ref.callback_query.message.text= برای شروع روی لینک زیر کلیک کنید
+ref.callback_query.message.reply_markup.inline_keyboard.0.0.text= مشاهده لیست ارزها
+ref.callback_query.message.reply_markup.inline_keyboard.0.0.callback_data= /home
+ref.callback_query.chat_instance= 775567123105701538
+ref.callback_query.data= /home
+
+
+[ref]
+ref.reply_markup= {"inline_keyboard":[[{"text":0,"callback_data":{"\u062f\u0644\u0627\u0631":"\/currency\/dollar","\u0633\u06a9\u0647":"\/currency\/coin"}}],[{"text":"\u0628\u06cc\u062a \u06a9\u0648\u06cc\u0646","callback_data":"\/crypto\/BTC"},{"text":"\u0627\u062a\u0631\u06cc\u0648\u0645","callback_data":"\/crypto\/ETH"}],[{"text":"\u0628\u06cc\u062a \u06a9\u0648\u06cc\u0646 \u06a9\u0634","callback_data":"\/crypto\/BCH"},{"text":"\u0644\u0627\u06cc\u062a \u06a9\u0648\u06cc\u0646","callback_data":"\/crypto\/LTC"}],[{"text":"\u062f\u0634","callback_data":"\/crypto\/DASH"},{"text":"\u062f\u0648\u062c \u06a9\u0648\u06cc\u0646","callback_data":"\/crypto\/DOGE"}],[{"text":"\u062a\u062a\u0631","callback_data":"\/crypto\/USDT"},{"text":"\u0631\u06cc\u067e\u0644","callback_data":"\/crypto\/XRP"}],[{"text":"\u062a\u0631\u0648\u0646","callback_data":"\/crypto\/TRX"},{"text":"\u0627\u0633\u062a\u0644\u0627\u0631","callback_data":"\/crypto\/XLM"}]]}
+ref.text= لطفا روی یکی از گزینه های زیر کلیک کنید
+ref.message_id= 129
+
+
+============[Trace]===========
+#0 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(1797): TelegramErrorLogger::log(Array, Array)
+#1 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(119): Telegram->sendAPIRequest('https://api.tel...', Array)
+#2 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(687): Telegram->endpoint('editMessageText', Array)
+#3 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\app\Services\TelegramService.php(48): Telegram->editMessageText(Array)
+#4 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\index.php(47): App\Services\TelegramService->editMessage('\xD9\x84\xD8\xB7\xD9\x81\xD8\xA7 \xD8\xB1\xD9\x88\xDB\x8C...', '{"inline_keyboa...', 129)
+#5 {main}
+
+============[Date]============
+[ 2024-08-22 21:06:38  UTC ] 
+==========[Response]==========
+ok:			False
+error_code:		400
+description:		Bad Request: can't parse inline keyboard button: Field "callback_data" must be of type String
+=========[Sent Data]==========
+[ref]
+ref.update_id= 47390850
+ref.callback_query.id= 4025614896723588572
+ref.callback_query.from.id= 937286507
+ref.callback_query.from.is_bot= false
+ref.callback_query.from.first_name= لاراپلاس | laraplus.ir
+ref.callback_query.from.username= laraplus_ir
+ref.callback_query.from.language_code= en
+ref.callback_query.message.message_id= 165
+ref.callback_query.message.from.id= 7225095237
+ref.callback_query.message.from.is_bot= true
+ref.callback_query.message.from.first_name= ربات نمایش قیمت لحظه ای رمزارزها
+ref.callback_query.message.from.username= larapluscryptobot
+ref.callback_query.message.chat.id= 937286507
+ref.callback_query.message.chat.first_name= لاراپلاس | laraplus.ir
+ref.callback_query.message.chat.username= laraplus_ir
+ref.callback_query.message.chat.type= private
+ref.callback_query.message.date= 1724360244
+ref.callback_query.message.text= برای شروع روی لینک زیر کلیک کنید
+ref.callback_query.message.reply_markup.inline_keyboard.0.0.text= مشاهده لیست ارزها
+ref.callback_query.message.reply_markup.inline_keyboard.0.0.callback_data= /home
+ref.callback_query.chat_instance= 775567123105701538
+ref.callback_query.data= /home
+
+
+[ref]
+ref.reply_markup= {"inline_keyboard":[[{"text":"\u062f\u0644\u0627\u0631","callback_data":"\/currency\/dollar"},{"text":"\u0633\u06a9\u0647","callback_data":"\/currency\/coin"}],[{"text":"\u0628\u06cc\u062a \u06a9\u0648\u06cc\u0646","callback_data":"\/crypto\/BTC"},{"text":"\u0627\u062a\u0631\u06cc\u0648\u0645","callback_data":"\/crypto\/ETH"}],[{"text":"\u0628\u06cc\u062a \u06a9\u0648\u06cc\u0646 \u06a9\u0634","callback_data":"\/crypto\/BCH"},{"text":"\u0644\u0627\u06cc\u062a \u06a9\u0648\u06cc\u0646","callback_data":"\/crypto\/LTC"}],[{"text":"\u062f\u0634","callback_data":"\/crypto\/DASH"},{"text":"\u062f\u0648\u062c \u06a9\u0648\u06cc\u0646","callback_data":"\/crypto\/DOGE"}],[{"text":"\u062a\u062a\u0631","callback_data":"\/crypto\/USDT"},{"text":"\u0631\u06cc\u067e\u0644","callback_data":"\/crypto\/XRP"}],[{"text":"\u062a\u0631\u0648\u0646","callback_data":"\/crypto\/TRX"},{"text":"\u0627\u0633\u062a\u0644\u0627\u0631","callback_data":"\/crypto\/XLM"}],[{"text":0,"callback_data":{"\u062c\u0633\u062a\u062c\u0648":"\/search"}}]]}
+ref.text= لطفا روی یکی از گزینه های زیر کلیک کنید
+ref.message_id= 171
+
+
+============[Trace]===========
+#0 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(1797): TelegramErrorLogger::log(Array, Array)
+#1 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(119): Telegram->sendAPIRequest('https://api.tel...', Array)
+#2 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(687): Telegram->endpoint('editMessageText', Array)
+#3 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\app\Services\TelegramService.php(56): Telegram->editMessageText(Array)
+#4 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\index.php(46): App\Services\TelegramService->editMessage('\xD9\x84\xD8\xB7\xD9\x81\xD8\xA7 \xD8\xB1\xD9\x88\xDB\x8C...', '{"inline_keyboa...', Array)
+#5 {main}
+
+============[Date]============
+[ 2024-08-22 21:06:48  UTC ] 
+==========[Response]==========
+ok:			False
+error_code:		400
+description:		Bad Request: can't parse inline keyboard button: Field "callback_data" must be of type String
+=========[Sent Data]==========
+[ref]
+ref.update_id= 47390852
+ref.callback_query.id= 4025614898133274411
+ref.callback_query.from.id= 937286507
+ref.callback_query.from.is_bot= false
+ref.callback_query.from.first_name= لاراپلاس | laraplus.ir
+ref.callback_query.from.username= laraplus_ir
+ref.callback_query.from.language_code= en
+ref.callback_query.message.message_id= 172
+ref.callback_query.message.from.id= 7225095237
+ref.callback_query.message.from.is_bot= true
+ref.callback_query.message.from.first_name= ربات نمایش قیمت لحظه ای رمزارزها
+ref.callback_query.message.from.username= larapluscryptobot
+ref.callback_query.message.chat.id= 937286507
+ref.callback_query.message.chat.first_name= لاراپلاس | laraplus.ir
+ref.callback_query.message.chat.username= laraplus_ir
+ref.callback_query.message.chat.type= private
+ref.callback_query.message.date= 1724360798
+ref.callback_query.message.text= برای شروع روی لینک زیر کلیک کنید
+ref.callback_query.message.reply_markup.inline_keyboard.0.0.text= مشاهده لیست ارزها
+ref.callback_query.message.reply_markup.inline_keyboard.0.0.callback_data= /home
+ref.callback_query.chat_instance= 775567123105701538
+ref.callback_query.data= /home
+
+
+[ref]
+ref.reply_markup= {"inline_keyboard":[[{"text":"\u062f\u0644\u0627\u0631","callback_data":"\/currency\/dollar"},{"text":"\u0633\u06a9\u0647","callback_data":"\/currency\/coin"}],[{"text":"\u0628\u06cc\u062a \u06a9\u0648\u06cc\u0646","callback_data":"\/crypto\/BTC"},{"text":"\u0627\u062a\u0631\u06cc\u0648\u0645","callback_data":"\/crypto\/ETH"}],[{"text":"\u0628\u06cc\u062a \u06a9\u0648\u06cc\u0646 \u06a9\u0634","callback_data":"\/crypto\/BCH"},{"text":"\u0644\u0627\u06cc\u062a \u06a9\u0648\u06cc\u0646","callback_data":"\/crypto\/LTC"}],[{"text":"\u062f\u0634","callback_data":"\/crypto\/DASH"},{"text":"\u062f\u0648\u062c \u06a9\u0648\u06cc\u0646","callback_data":"\/crypto\/DOGE"}],[{"text":"\u062a\u062a\u0631","callback_data":"\/crypto\/USDT"},{"text":"\u0631\u06cc\u067e\u0644","callback_data":"\/crypto\/XRP"}],[{"text":"\u062a\u0631\u0648\u0646","callback_data":"\/crypto\/TRX"},{"text":"\u0627\u0633\u062a\u0644\u0627\u0631","callback_data":"\/crypto\/XLM"}],[{"text":0,"callback_data":{"\u062c\u0633\u062a\u062c\u0648":"\/search"}}]]}
+ref.text= لطفا روی یکی از گزینه های زیر کلیک کنید
+ref.message_id= 173
+
+
+============[Trace]===========
+#0 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(1797): TelegramErrorLogger::log(Array, Array)
+#1 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(119): Telegram->sendAPIRequest('https://api.tel...', Array)
+#2 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(687): Telegram->endpoint('editMessageText', Array)
+#3 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\app\Services\TelegramService.php(56): Telegram->editMessageText(Array)
+#4 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\index.php(46): App\Services\TelegramService->editMessage('\xD9\x84\xD8\xB7\xD9\x81\xD8\xA7 \xD8\xB1\xD9\x88\xDB\x8C...', '{"inline_keyboa...', Array)
+#5 {main}
+
+============[Date]============
+[ 2024-08-22 21:07:16  UTC ] 
+==========[Response]==========
+ok:			False
+error_code:		400
+description:		Bad Request: can't parse inline keyboard button: Field "callback_data" must be of type String
+=========[Sent Data]==========
+[ref]
+ref.update_id= 47390853
+ref.callback_query.id= 4025614896202525197
+ref.callback_query.from.id= 937286507
+ref.callback_query.from.is_bot= false
+ref.callback_query.from.first_name= لاراپلاس | laraplus.ir
+ref.callback_query.from.username= laraplus_ir
+ref.callback_query.from.language_code= en
+ref.callback_query.message.message_id= 172
+ref.callback_query.message.from.id= 7225095237
+ref.callback_query.message.from.is_bot= true
+ref.callback_query.message.from.first_name= ربات نمایش قیمت لحظه ای رمزارزها
+ref.callback_query.message.from.username= larapluscryptobot
+ref.callback_query.message.chat.id= 937286507
+ref.callback_query.message.chat.first_name= لاراپلاس | laraplus.ir
+ref.callback_query.message.chat.username= laraplus_ir
+ref.callback_query.message.chat.type= private
+ref.callback_query.message.date= 1724360798
+ref.callback_query.message.text= برای شروع روی لینک زیر کلیک کنید
+ref.callback_query.message.reply_markup.inline_keyboard.0.0.text= مشاهده لیست ارزها
+ref.callback_query.message.reply_markup.inline_keyboard.0.0.callback_data= /home
+ref.callback_query.chat_instance= 775567123105701538
+ref.callback_query.data= /home
+
+
+[ref]
+ref.reply_markup= {"inline_keyboard":[[{"text":"\u062f\u0644\u0627\u0631","callback_data":"\/currency\/dollar"},{"text":"\u0633\u06a9\u0647","callback_data":"\/currency\/coin"}],[{"text":"\u0628\u06cc\u062a \u06a9\u0648\u06cc\u0646","callback_data":"\/crypto\/BTC"},{"text":"\u0627\u062a\u0631\u06cc\u0648\u0645","callback_data":"\/crypto\/ETH"}],[{"text":"\u0628\u06cc\u062a \u06a9\u0648\u06cc\u0646 \u06a9\u0634","callback_data":"\/crypto\/BCH"},{"text":"\u0644\u0627\u06cc\u062a \u06a9\u0648\u06cc\u0646","callback_data":"\/crypto\/LTC"}],[{"text":"\u062f\u0634","callback_data":"\/crypto\/DASH"},{"text":"\u062f\u0648\u062c \u06a9\u0648\u06cc\u0646","callback_data":"\/crypto\/DOGE"}],[{"text":"\u062a\u062a\u0631","callback_data":"\/crypto\/USDT"},{"text":"\u0631\u06cc\u067e\u0644","callback_data":"\/crypto\/XRP"}],[{"text":"\u062a\u0631\u0648\u0646","callback_data":"\/crypto\/TRX"},{"text":"\u0627\u0633\u062a\u0644\u0627\u0631","callback_data":"\/crypto\/XLM"}],[{"text":0,"callback_data":{"\u062c\u0633\u062a\u062c\u0648":"\/search"}}]]}
+ref.text= لطفا روی یکی از گزینه های زیر کلیک کنید
+ref.message_id= 174
+
+
+============[Trace]===========
+#0 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(1797): TelegramErrorLogger::log(Array, Array)
+#1 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(119): Telegram->sendAPIRequest('https://api.tel...', Array)
+#2 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(687): Telegram->endpoint('editMessageText', Array)
+#3 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\app\Services\TelegramService.php(56): Telegram->editMessageText(Array)
+#4 D:\laragon-new\www\php\tutorial-bots\4-crypto-bot\index.php(46): App\Services\TelegramService->editMessage('\xD9\x84\xD8\xB7\xD9\x81\xD8\xA7 \xD8\xB1\xD9\x88\xDB\x8C...', '{"inline_keyboa...', Array)
+#5 {main}
+

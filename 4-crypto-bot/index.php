@@ -1,99 +1,64 @@
 <?php
 
+use App\Services\HttpRequest;
+use App\Services\TelegramService;
+
 require 'vendor/autoload.php';
 
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
-$telegram = new Telegram($_ENV['TELEGRAM_BOT_TOKEN'], proxy: [
-    'url' => '127.0.0.1',
-    'port' => '12334'
-]);
 
-$text = $telegram->Text();
-$chat_id = $telegram->ChatId();
-$data = $telegram->getData();
+$telegram  = new TelegramService();
 
-if ($text === '/start') {
 
-    $keyboard = $telegram->buildInlineKeyBoard([
-        [$telegram->buildInlineKeyboardButton('مشاهده لیست ارزها', callback_data: "/home")]
-    ]);
+if ($telegram->text() === '/start') {
 
-    $telegram->sendMessage([
-        'chat_id' => $chat_id,
-        'reply_markup' => $keyboard,
-        'text' => "برای شروع روی لینک زیر کلیک کنید",
-    ]);
+    $keyboard = [
+        ['مشاهده لیست ارزها' => '/home'],
+    ];
+
+    $telegram->sendMessage("برای شروع روی لینک زیر کلیک کنید", $keyboard);
+    return;
 }
 
-if ($text === '/home') {
+if ($telegram->text() === '/home') {
 
-    $loading_message = $telegram->sendMessage([
-        'chat_id' => $chat_id,
-        'text' => 'در حال دریافت اطلاعات ...'
-    ]);
+    $loading_message = $telegram->sendMessage('در حال دریافت اطلاعات ...');
 
-    $result = getCryptoList();
+    $result = (new HttpRequest)->cryptolist();
 
     $cryptoList = array_slice($result, 0, 10);
 
-    $buttons = [];
-
-    $buttons[] = [
-        $telegram->buildInlineKeyboardButton('دلار', callback_data: "/currency/dollar"),
-        $telegram->buildInlineKeyboardButton('سکه', callback_data: "/currency/coin")
-    ];
-
+    $buttons = [["دلار" => "/currency/dollar", "سکه" => "/currency/coin"]];
 
     foreach (array_chunk($cryptoList, 2) as $cryptoGroup) {
         $buttons[] = [
-            $telegram->buildInlineKeyboardButton($cryptoGroup[0]->name, callback_data: "/crypto/{$cryptoGroup[0]->key}"),
-            $telegram->buildInlineKeyboardButton($cryptoGroup[1]->name, callback_data: "/crypto/{$cryptoGroup[1]->key}")
+            $cryptoGroup[0]->name => "/crypto/{$cryptoGroup[0]->key}",
+            $cryptoGroup[1]->name => "/crypto/{$cryptoGroup[1]->key}"
         ];
     }
 
-    $keyboard = $telegram->buildInlineKeyBoard($buttons);
+    $buttons[] = ["جستجو" => "/search"];
 
-    $telegram->editMessageText([
-        'chat_id' => $chat_id,
-        'reply_markup' => $keyboard,
-        'text' => "لطفا روی یکی از گزینه های زیر کلیک کنید",
-        'message_id' => $loading_message['result']['message_id']
-    ]);
 
-    // $telegram->editMessageText([
-    //     'chat_id' => $chat_id,
-    //     'reply_markup' => $keyboard,
-    //     'text' => "لطفا روی یکی از گزینه های زیر کلیک کنید",
-    //     'message_id' => $telegram->MessageID(),
-    // ]);
-
-    // $telegram->deleteMessage([
-    //     'chat_id' => $chat_id,
-    //     'message_id' => $loading_message['result']['message_id']
-    // ]);
+    $telegram->editMessage("لطفا روی یکی از گزینه های زیر کلیک کنید", $buttons, $loading_message);
+    return;
 }
 
-if (str_starts_with($text, '/currency/')) {
-    $key = str_replace('/currency/', '', $text);
+if (str_starts_with($telegram->text(), '/currency/')) {
+    $key = str_replace('/currency/', '', $telegram->text());
 
     if ($key !== 'dollar' && $key !== 'coin') {
-        $telegram->sendMessage([
-            'chat_id' => $chat_id,
-            'text' => "دستور وارد شده معتبر نیست ❌",
-        ]);
+        $telegram->sendMessage("دستور وارد شده معتبر نیست ❌");
 
         return;
     }
 
-    $loading_message = $telegram->sendMessage([
-        'chat_id' => $chat_id,
-        'text' => 'در حال دریافت اطلاعات ...'
-    ]);
+    $loading_message = $telegram->sendMessage('در حال دریافت اطلاعات ...');
 
-    $list = getCurrencyList();
+    $list = (new HttpRequest)->currencyList();
 
     if ($key === 'dollar') {
         $text = "قیمت روز دلار: " . $list->currencies->dollar->p . "\n\n";
@@ -109,28 +74,21 @@ if (str_starts_with($text, '/currency/')) {
     }
 
 
-    $keyboard = $telegram->buildInlineKeyBoard([
-        [$telegram->buildInlineKeyboardButton('بازگشت', callback_data: "/home")]
-    ]);
+    $keyboard = [
+        ['بازگشت' => '/home']
+    ];
 
-    $telegram->editMessageText([
-        'chat_id' => $chat_id,
-        'reply_markup' => $keyboard,
-        'message_id' => $loading_message['result']['message_id'],
-        'text' => $text,
-    ]);
+    $telegram->editMessage($text, $keyboard, $loading_message);
+    return;
 }
 
-if (str_starts_with($text, '/crypto/')) {
-    $crypto_key = str_replace('/crypto/', '', $text);
+if (str_starts_with($telegram->text(), '/crypto/')) {
+    $crypto_key = str_replace('/crypto/', '', $telegram->text());
 
 
-    $loading_message = $telegram->sendMessage([
-        'chat_id' => $chat_id,
-        'text' => 'در حال دریافت اطلاعات ...'
-    ]);
+    $loading_message = $telegram->sendMessage('در حال دریافت اطلاعات ...');
 
-    $list = getCryptoList();
+    $list = (new HttpRequest)->cryptolist();
 
     $result = array_filter($list, fn($crypto) => $crypto->key === $crypto_key);
     $crypto = array_shift($result);
@@ -140,26 +98,28 @@ if (str_starts_with($text, '/crypto/')) {
     $text .= " قیمت: " . number_format($crypto->price) . " دلار \n\n";
 
 
-    $keyboard = $telegram->buildInlineKeyBoard([
-        [$telegram->buildInlineKeyboardButton('بازگشت', callback_data: "/home")]
-    ]);
+    $keyboard = [
+        ['بازگشت' => '/home']
+    ];
 
-    $telegram->editMessageText([
-        'chat_id' => $chat_id,
-        'reply_markup' => $keyboard,
-        'message_id' => $loading_message['result']['message_id'],
-        'text' => $text,
-    ]);
+    $telegram->editMessage($text, $keyboard, $loading_message);
+    return;
+}
 
-    // $telegram->editMessageText([
-    //     'chat_id' => $chat_id,
-    //     'reply_markup' => $keyboard,
-    //     'message_id' => $telegram->MessageID(),
-    //     'text' => $text,
-    // ]);
+if ($telegram->text() === '/search') {
+    // save command to database
+    $telegram->sendMessage("لطفا بخشی از نام رمزارز مدنظر خود را وارد کنید");
+    return;
+}
 
-    // $telegram->deleteMessage([
-    //     'chat_id' => $chat_id,
-    //     'message_id' => $loading_message['result']['message_id']
-    // ]);
+if (! empty($telegram->text())) {
+
+    // 1. check user's last command
+    // 2. if last command equals to /search  then search for entered parameter
+    // 3. else send error
+
+
+
+    $telegram->sendMessage("دستور وارد شده معتبر نیست ❌");
+    return;
 }
