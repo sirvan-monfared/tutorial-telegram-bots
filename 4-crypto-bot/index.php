@@ -1,5 +1,6 @@
 <?php
 
+use App\Services\Database;
 use App\Services\HttpRequest;
 use App\Services\TelegramService;
 
@@ -24,22 +25,13 @@ if ($telegram->text() === '/start') {
 }
 
 if ($telegram->text() === '/home') {
-
     $loading_message = $telegram->sendMessage('در حال دریافت اطلاعات ...');
 
     $result = (new HttpRequest)->cryptolist();
 
-    $cryptoList = array_slice($result, 0, 10);
 
-    $buttons = [["دلار" => "/currency/dollar", "سکه" => "/currency/coin"]];
-
-    foreach (array_chunk($cryptoList, 2) as $cryptoGroup) {
-        $buttons[] = [
-            $cryptoGroup[0]->name => "/crypto/{$cryptoGroup[0]->key}",
-            $cryptoGroup[1]->name => "/crypto/{$cryptoGroup[1]->key}"
-        ];
-    }
-
+    $currency_buttons = [["دلار" => "/currency/dollar", "سکه" => "/currency/coin"]];
+    $buttons = organizeCryptoButtonsAsTwoColumn($result, $currency_buttons);
     $buttons[] = ["جستجو" => "/search"];
 
 
@@ -107,19 +99,84 @@ if (str_starts_with($telegram->text(), '/crypto/')) {
 }
 
 if ($telegram->text() === '/search') {
-    // save command to database
+
+    $sql = "INSERT INTO `commands` (`chat_id`, `command`, `created_at`) VALUES (:chat_id,:command,:created_at)";
+
+    $values = [
+        'chat_id' => $telegram->chatId(),
+        'command' => '/search',
+        'created_at' => now()
+    ];
+
+    (new Database)->prepare($sql, $values);
+
     $telegram->sendMessage("لطفا بخشی از نام رمزارز مدنظر خود را وارد کنید");
     return;
 }
 
 if (! empty($telegram->text())) {
 
-    // 1. check user's last command
-    // 2. if last command equals to /search  then search for entered parameter
-    // 3. else send error
+
+    $record = findLatestActiveCommand($telegram->chatId());
 
 
+    if (! $record || $record['command'] !== '/search') {
+        $telegram->sendMessage("دستور وارد شده معتبر نیست ❌");
+        return;
+    }
 
-    $telegram->sendMessage("دستور وارد شده معتبر نیست ❌");
+    $loading_message = $telegram->sendMessage('در حال دریافت اطلاعات ...');
+
+
+    $list = (new HttpRequest)->cryptolist();
+
+    $search_text = $telegram->text();
+    $cryptos = array_filter($list, function ($item) use ($search_text) {
+        return  str_contains($item->name, $search_text) ||
+            str_contains($item->name_en, $search_text) ||
+            str_contains($item->key, $search_text);
+    });
+
+
+    $buttons = organizeCryptoButtonsAsTwoColumn($cryptos);
+
+    $buttons[] = ["بازگشت" => "/home"];
+
+    markCommandAsCompleted($record['id']);
+
+
+    $telegram->editMessage("لطفا روی یکی از گزینه های زیر کلیک کنید", $buttons, $loading_message);
     return;
+}
+
+
+function findLatestActiveCommand($chat_id)
+{
+    $sql = "SELECT * FROM `commands` WHERE `chat_id`=:chat_id AND `completed`=0 ORDER BY `id` DESC LIMIT 1";
+
+    return (new Database)->prepare($sql, [
+        'chat_id' => $chat_id
+    ])->find();
+}
+function markCommandAsCompleted($command_id)
+{
+    $sql = "UPDATE `commands` SET `completed`=1 WHERE `id`=:id";
+    (new Database)->prepare($sql, [
+        'id' => $command_id
+    ]);
+}
+
+
+function organizeCryptoButtonsAsTwoColumn(array $cryptoList, ?array $buttons = [], ?int $limit = 10)
+{
+    $cryptoList = array_slice($cryptoList, 0, $limit);
+
+    foreach (array_chunk($cryptoList, 2) as $cryptoGroup) {
+        $buttons[] = [
+            $cryptoGroup[0]->name => "/crypto/{$cryptoGroup[0]->key}",
+            $cryptoGroup[1]->name => "/crypto/{$cryptoGroup[1]->key}"
+        ];
+    }
+
+    return $buttons;
 }
