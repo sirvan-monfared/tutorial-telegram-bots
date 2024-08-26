@@ -143,3 +143,9 @@ function shamsi($date, $format = 'Y/m/d'): string
 {
     return jdate($date)->format($format);
 }
+
+
+function priceFormat($price)
+{
+    return number_format($price) . " تومان ";
+}

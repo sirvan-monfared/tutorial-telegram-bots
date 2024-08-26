@@ -9,48 +9,22 @@ use App\Core\CSRF;
 use App\Core\Session;
 use App\Core\Validator;
 use App\Models\Category;
+use App\Services\TelegramService;
 use eftec\bladeone\BladeOne;
 
 class BaseController {
 
-    protected $blade;
+    protected TelegramService $telegram;
 
-    public function __construct()
+    public function init(TelegramService $telegram)
     {
-        $this->blade = App::resolve('blade');
+        $this->telegram = $telegram;
 
-        $this->setComposers();
+        return $this;
     }
 
-    protected function view($view, $params = []): void
+    public function showLoading()
     {
-        echo $this->blade
-            ->share([
-                'errors' => Session::get('errors', [])
-            ])
-            ->run($view, $params);
+        return $this->telegram->sendMessage("🔃 در حال دریافت اطلاعات ...");
     }
-
-    protected function redirectToForm(Validator $validator): void
-    {
-        Session::flash('errors', $validator->errors());
-        Session::flash('old', $_POST);
-        Session::warning();
-
-        redirectBack();
-    }
-
-    public function redirectWithErrors(): void
-    {
-        Session::flash('old', $_POST);
-        Session::warning('مشکلی در اجرای عملیات پیش آمده است');
-
-        redirectBack();
-    }
-
-    protected function setComposers(): void
-    {
-        $this->blade->composer('front.layouts._top_categories', CategoriesComposer::class);
-    }
-
 }

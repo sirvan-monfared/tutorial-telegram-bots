@@ -47,7 +47,6 @@ class BotRouter {
     public function match()
     {
         $user_command = $this->telegram->text();
-
         foreach($this->routes as $route) {
             $type = $route['type'];
             $command = $route['command'];
@@ -55,13 +54,13 @@ class BotRouter {
             $method = $route['method'];
 
             if ($type === 'exact' && $user_command === $command) {
-                return (new $controller)->$method($user_command);
+                return (new $controller)->init($this->telegram)->$method($user_command);
             }
 
             if ($type === 'starts_with' && str_starts_with($user_command, $command)) {
                 $param = str_replace($command, '', $user_command);
 
-                return (new $controller)->$method($user_command, $param);
+                return (new $controller)->init($this->telegram)->$method($user_command, $param);
             }
         }
     }

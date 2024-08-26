@@ -23,11 +23,9 @@ class Database
     public function prepare($sql, $params = [], $class = null)
     {
         $this->statement = $this->pdo->prepare($sql);
-        
         if ($class) {
             $this->statement->setFetchMode(PDO::FETCH_CLASS, $class);
         }
-        
         $this->statement->execute($params);
 
         return $this;

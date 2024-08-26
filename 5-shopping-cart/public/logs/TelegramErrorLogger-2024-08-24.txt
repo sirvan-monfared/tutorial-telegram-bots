@@ -1,0 +1,106 @@
+============[Date]============
+[ 2024-08-24 11:22:54  UTC ] 
+==========[Response]==========
+ok:			False
+curl_error_code:		35
+curl_error:		OpenSSL SSL_connect: SSL_ERROR_SYSCALL in connection to api.telegram.org:443 
+=========[Sent Data]==========
+[ref]
+ref.update_id= 53426261
+ref.callback_query.id= 4025614897891705865
+ref.callback_query.from.id= 937286507
+ref.callback_query.from.is_bot= false
+ref.callback_query.from.first_name= لاراپلاس | laraplus.ir
+ref.callback_query.from.username= laraplus_ir
+ref.callback_query.from.language_code= en
+ref.callback_query.message.message_id= 41
+ref.callback_query.message.from.id= 7266849566
+ref.callback_query.message.from.is_bot= true
+ref.callback_query.message.from.first_name= ربات سبد خرید
+ref.callback_query.message.from.username= laraplusshoppingcartbot
+ref.callback_query.message.chat.id= 937286507
+ref.callback_query.message.chat.first_name= لاراپلاس | laraplus.ir
+ref.callback_query.message.chat.username= laraplus_ir
+ref.callback_query.message.chat.type= private
+ref.callback_query.message.date= 1724496469
+ref.callback_query.message.text= برای افزودن هریک از محصولات به سبد خرید، روی آن کلیک کنید
+ref.callback_query.message.reply_markup.inline_keyboard.0.0.text= شامپو بدن گلرنگ - 20,000 تومان 
+ref.callback_query.message.reply_markup.inline_keyboard.0.0.callback_data= /cart/add/4
+ref.callback_query.message.reply_markup.inline_keyboard.1.0.text= سرم مو - 500,000 تومان 
+ref.callback_query.message.reply_markup.inline_keyboard.1.0.callback_data= /cart/add/3
+ref.callback_query.message.reply_markup.inline_keyboard.2.0.text= کرم نرم کننده پوست - 120,000 تومان 
+ref.callback_query.message.reply_markup.inline_keyboard.2.0.callback_data= /cart/add/2
+ref.callback_query.message.reply_markup.inline_keyboard.3.0.text= کرم ضدآفتاب - 300,000 تومان 
+ref.callback_query.message.reply_markup.inline_keyboard.3.0.callback_data= /cart/add/1
+ref.callback_query.chat_instance= -946731077717198896
+ref.callback_query.data= /cart/add/1
+
+
+[ref]
+ref.reply_markup= 
+ref.text= ✅محصول کرم ضدآفتاب به سبد خرید اضافه شد✅
+
+
+============[Trace]===========
+#0 D:\laragon-new\www\php\tutorial-bots\5-shopping-cart\vendor\eleirbag89\telegrambotphp\Telegram.php(1797): TelegramErrorLogger::log(Array, Array)
+#1 D:\laragon-new\www\php\tutorial-bots\5-shopping-cart\vendor\eleirbag89\telegrambotphp\Telegram.php(119): Telegram->sendAPIRequest('https://api.tel...', Array)
+#2 D:\laragon-new\www\php\tutorial-bots\5-shopping-cart\vendor\eleirbag89\telegrambotphp\Telegram.php(177): Telegram->endpoint('sendMessage', Array)
+#3 D:\laragon-new\www\php\tutorial-bots\5-shopping-cart\App\Services\TelegramService.php(34): Telegram->sendMessage(Array)
+#4 D:\laragon-new\www\php\tutorial-bots\5-shopping-cart\App\Http\Controllers\CartController.php(30): App\Services\TelegramService->sendMessage('\xE2\x9C\x85\xD9\x85\xD8\xAD\xD8\xB5\xD9\x88\xD9\x84 \xDA...')
+#5 D:\laragon-new\www\php\tutorial-bots\5-shopping-cart\App\Core\BotRouter.php(63): App\Http\Controllers\CartController->store(Object(App\Services\TelegramService), '/cart/add/1', 1)
+#6 D:\laragon-new\www\php\tutorial-bots\5-shopping-cart\public\index.php(29): App\Core\BotRouter->match()
+#7 {main}
+
+============[Date]============
+[ 2024-08-24 11:23:33  UTC ] 
+==========[Response]==========
+ok:			False
+curl_error_code:		35
+curl_error:		OpenSSL SSL_connect: SSL_ERROR_SYSCALL in connection to api.telegram.org:443 
+=========[Sent Data]==========
+[ref]
+ref.update_id= 53426262
+ref.callback_query.id= 4025614895462160745
+ref.callback_query.from.id= 937286507
+ref.callback_query.from.is_bot= false
+ref.callback_query.from.first_name= لاراپلاس | laraplus.ir
+ref.callback_query.from.username= laraplus_ir
+ref.callback_query.from.language_code= en
+ref.callback_query.message.message_id= 41
+ref.callback_query.message.from.id= 7266849566
+ref.callback_query.message.from.is_bot= true
+ref.callback_query.message.from.first_name= ربات سبد خرید
+ref.callback_query.message.from.username= laraplusshoppingcartbot
+ref.callback_query.message.chat.id= 937286507
+ref.callback_query.message.chat.first_name= لاراپلاس | laraplus.ir
+ref.callback_query.message.chat.username= laraplus_ir
+ref.callback_query.message.chat.type= private
+ref.callback_query.message.date= 1724496469
+ref.callback_query.message.text= برای افزودن هریک از محصولات به سبد خرید، روی آن کلیک کنید
+ref.callback_query.message.reply_markup.inline_keyboard.0.0.text= شامپو بدن گلرنگ - 20,000 تومان 
+ref.callback_query.message.reply_markup.inline_keyboard.0.0.callback_data= /cart/add/4
+ref.callback_query.message.reply_markup.inline_keyboard.1.0.text= سرم مو - 500,000 تومان 
+ref.callback_query.message.reply_markup.inline_keyboard.1.0.callback_data= /cart/add/3
+ref.callback_query.message.reply_markup.inline_keyboard.2.0.text= کرم نرم کننده پوست - 120,000 تومان 
+ref.callback_query.message.reply_markup.inline_keyboard.2.0.callback_data= /cart/add/2
+ref.callback_query.message.reply_markup.inline_keyboard.3.0.text= کرم ضدآفتاب - 300,000 تومان 
+ref.callback_query.message.reply_markup.inline_keyboard.3.0.callback_data= /cart/add/1
+ref.callback_query.chat_instance= -946731077717198896
+ref.callback_query.data= /cart/add/1
+
+
+[ref]
+ref.reply_markup= 
+ref.text= ✅محصول کرم ضدآفتاب به سبد خرید اضافه شد✅
+
+
+============[Trace]===========
+#0 D:\laragon-new\www\php\tutorial-bots\5-shopping-cart\vendor\eleirbag89\telegrambotphp\Telegram.php(1797): TelegramErrorLogger::log(Array, Array)
+#1 D:\laragon-new\www\php\tutorial-bots\5-shopping-cart\vendor\eleirbag89\telegrambotphp\Telegram.php(119): Telegram->sendAPIRequest('https://api.tel...', Array)
+#2 D:\laragon-new\www\php\tutorial-bots\5-shopping-cart\vendor\eleirbag89\telegrambotphp\Telegram.php(177): Telegram->endpoint('sendMessage', Array)
+#3 D:\laragon-new\www\php\tutorial-bots\5-shopping-cart\App\Services\TelegramService.php(34): Telegram->sendMessage(Array)
+#4 D:\laragon-new\www\php\tutorial-bots\5-shopping-cart\App\Http\Controllers\CartController.php(30): App\Services\TelegramService->sendMessage('\xE2\x9C\x85\xD9\x85\xD8\xAD\xD8\xB5\xD9\x88\xD9\x84 \xDA...')
+#5 D:\laragon-new\www\php\tutorial-bots\5-shopping-cart\App\Core\BotRouter.php(63): App\Http\Controllers\CartController->store(Object(App\Services\TelegramService), '/cart/add/1', 1)
+#6 D:\laragon-new\www\php\tutorial-bots\5-shopping-cart\public\index.php(29): App\Core\BotRouter->match()
+#7 {main}
+
