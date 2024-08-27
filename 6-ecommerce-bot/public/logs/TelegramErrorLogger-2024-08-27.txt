@@ -1,0 +1,140 @@
+============[Date]============
+[ 2024-08-27 16:47:40  UTC ] 
+==========[Response]==========
+ok:			False
+error_code:		401
+description:		Unauthorized
+=========[Sent Data]==========
+[ref]
+ref.update_id= 569207957
+ref.message.message_id= 28
+ref.message.from.id= 937286507
+ref.message.from.is_bot= false
+ref.message.from.first_name= لاراپلاس | laraplus.ir
+ref.message.from.username= laraplus_ir
+ref.message.from.language_code= en
+ref.message.chat.id= 937286507
+ref.message.chat.first_name= لاراپلاس | laraplus.ir
+ref.message.chat.username= laraplus_ir
+ref.message.chat.type= private
+ref.message.date= 1724777256
+ref.message.text= /start
+ref.message.entities.0.offset= 0
+ref.message.entities.0.length= 6
+ref.message.entities.0.type= bot_command
+
+
+[ref]
+ref.reply_markup= {"inline_keyboard":[[{"text":"\u0645\u0634\u0627\u0647\u062f\u0647 \u0645\u062d\u0635\u0648\u0644\u0627\u062a","callback_data":"\/products"},{"text":"\u0645\u0634\u0627\u0647\u062f\u0647 \u0633\u0628\u062f\u062e\u0631\u06cc\u062f","callback_data":"\/cart"}],[{"text":"\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u06a9\u0627\u0631\u0628\u0631\u06cc","callback_data":"\/profile"}]]}
+ref.text= یکی از گزینه های زیر را نتخاب کنید
+
+
+============[Trace]===========
+#0 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(1797): TelegramErrorLogger::log(Array, Array)
+#1 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(119): Telegram->sendAPIRequest('https://api.tel...', Array)
+#2 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(177): Telegram->endpoint('sendMessage', Array)
+#3 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\App\Services\TelegramService.php(34): Telegram->sendMessage(Array)
+#4 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\App\Http\Controllers\StartController.php(16): App\Services\TelegramService->sendMessage('\xDB\x8C\xDA\xA9\xDB\x8C \xD8\xA7\xD8\xB2 \xDA\xAF\xD8...', '{"inline_keyboa...')
+#5 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\App\Core\BotRouter.php(57): App\Http\Controllers\StartController->handle('/start')
+#6 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\public\index.php(29): App\Core\BotRouter->match()
+#7 {main}
+
+============[Date]============
+[ 2024-08-27 16:48:06  UTC ] 
+==========[Response]==========
+ok:			False
+error_code:		401
+description:		Unauthorized
+=========[Sent Data]==========
+[ref]
+ref.update_id= 569207958
+ref.message.message_id= 29
+ref.message.from.id= 937286507
+ref.message.from.is_bot= false
+ref.message.from.first_name= لاراپلاس | laraplus.ir
+ref.message.from.username= laraplus_ir
+ref.message.from.language_code= en
+ref.message.chat.id= 937286507
+ref.message.chat.first_name= لاراپلاس | laraplus.ir
+ref.message.chat.username= laraplus_ir
+ref.message.chat.type= private
+ref.message.date= 1724777284
+ref.message.text= /start
+ref.message.entities.0.offset= 0
+ref.message.entities.0.length= 6
+ref.message.entities.0.type= bot_command
+
+
+[ref]
+ref.reply_markup= {"inline_keyboard":[[{"text":"\u0645\u0634\u0627\u0647\u062f\u0647 \u0645\u062d\u0635\u0648\u0644\u0627\u062a","callback_data":"\/products"},{"text":"\u0645\u0634\u0627\u0647\u062f\u0647 \u0633\u0628\u062f\u062e\u0631\u06cc\u062f","callback_data":"\/cart"}],[{"text":"\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u06a9\u0627\u0631\u0628\u0631\u06cc","callback_data":"\/profile"}]]}
+ref.text= یکی از گزینه های زیر را نتخاب کنید
+
+
+============[Trace]===========
+#0 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(1797): TelegramErrorLogger::log(Array, Array)
+#1 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(119): Telegram->sendAPIRequest('https://api.tel...', Array)
+#2 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(177): Telegram->endpoint('sendMessage', Array)
+#3 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\App\Services\TelegramService.php(34): Telegram->sendMessage(Array)
+#4 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\App\Http\Controllers\StartController.php(17): App\Services\TelegramService->sendMessage('\xDB\x8C\xDA\xA9\xDB\x8C \xD8\xA7\xD8\xB2 \xDA\xAF\xD8...', '{"inline_keyboa...')
+#5 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\App\Core\BotRouter.php(57): App\Http\Controllers\StartController->handle('/start')
+#6 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\public\index.php(29): App\Core\BotRouter->match()
+#7 {main}
+
+============[Date]============
+[ 2024-08-27 17:49:19  UTC ] 
+==========[Response]==========
+ok:			False
+error_code:		400
+description:		Bad Request: message is not modified: specified new message content and reply markup are exactly the same as a current content and reply markup of the message
+=========[Sent Data]==========
+[ref]
+ref.update_id= 569207981
+ref.callback_query.id= 4025614896188740272
+ref.callback_query.from.id= 937286507
+ref.callback_query.from.is_bot= false
+ref.callback_query.from.first_name= لاراپلاس | laraplus.ir
+ref.callback_query.from.username= laraplus_ir
+ref.callback_query.from.language_code= en
+ref.callback_query.message.message_id= 51
+ref.callback_query.message.from.id= 7512086433
+ref.callback_query.message.from.is_bot= true
+ref.callback_query.message.from.first_name= فروشگاه لاراپلاس
+ref.callback_query.message.from.username= laraplusecommercebot
+ref.callback_query.message.chat.id= 937286507
+ref.callback_query.message.chat.first_name= لاراپلاس | laraplus.ir
+ref.callback_query.message.chat.username= laraplus_ir
+ref.callback_query.message.chat.type= private
+ref.callback_query.message.date= 1724780799
+ref.callback_query.message.text= یکی از گزینه های زیر را نتخاب کنید
+ref.callback_query.message.reply_markup.inline_keyboard.0.0.text= مشاهده محصولات
+ref.callback_query.message.reply_markup.inline_keyboard.0.0.callback_data= /products
+ref.callback_query.message.reply_markup.inline_keyboard.0.1.text= مشاهده سبدخرید
+ref.callback_query.message.reply_markup.inline_keyboard.0.1.callback_data= /cart
+ref.callback_query.message.reply_markup.inline_keyboard.1.0.text= اطلاعات کاربری
+ref.callback_query.message.reply_markup.inline_keyboard.1.0.callback_data= /profile
+ref.callback_query.chat_instance= -7928342012465071240
+ref.callback_query.data= /profile
+
+
+[ref]
+ref.reply_markup= {"inline_keyboard":[[{"text":"\u0648\u06cc\u0631\u0627\u06cc\u0634 \u0646\u0627\u0645","callback_data":"\/profile\/name"},{"text":"\u0648\u06cc\u0631\u0627\u06cc\u0634 \u0622\u062f\u0631\u0633","callback_data":"\/profile\/address"}]]}
+ref.text= مشخصات کاربری شما: 
+
+نام: سیروان جون
+
+آدرس: نامشخص
+
+
+ref.message_id= 51
+
+
+============[Trace]===========
+#0 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(1797): TelegramErrorLogger::log(Array, Array)
+#1 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(119): Telegram->sendAPIRequest('https://api.tel...', Array)
+#2 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(687): Telegram->endpoint('editMessageText', Array)
+#3 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\App\Services\TelegramService.php(56): Telegram->editMessageText(Array)
+#4 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\App\Http\Controllers\ProfileController.php(19): App\Services\TelegramService->editMessage('\xD9\x85\xD8\xB4\xD8\xAE\xD8\xB5\xD8\xA7\xD8\xAA \xDA\xA9...', '{"inline_keyboa...')
+#5 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\App\Core\BotRouter.php(67): App\Http\Controllers\ProfileController->index('/profile')
+#6 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\public\index.php(29): App\Core\BotRouter->match()
+#7 {main}
+
