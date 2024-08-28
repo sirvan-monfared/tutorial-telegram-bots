@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StartController;
@@ -11,6 +12,8 @@ $router->exact('/products', ProductsController::class, 'index');
 $router->exact('/cart', CartController::class, 'index');
 $router->startsWith('/cart/add/', CartController::class, 'store');
 $router->startsWith('/cart/delete/', CartController::class, 'destroy');
+
+$router->exact('/checkout', CheckoutController::class, 'pay');
 
 $router->exact('/profile', ProfileController::class, 'index');
 $router->exact('/profile/name', ProfileController::class, 'editName');

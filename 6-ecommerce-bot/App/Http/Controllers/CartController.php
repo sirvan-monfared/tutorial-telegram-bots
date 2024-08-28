@@ -11,16 +11,22 @@ class CartController extends BaseController
     {
         $loading_message = $this->showLoading();
 
-        $items = (new CartItem)->whereAll('chat_id', $this->telegram->chatId());
+        $cart = $this->user->findOrCreateActiveCart();
+        $items = $cart->items();
 
         if (empty($items)) {
             return $this->telegram->editMessage("محصولی در سبد خرید شما وجود ندارد", message_to_edit: $loading_message);
         }
+        $text = "برای حذف هریک از آیتم ها از سبد خرید خود، لطفا روی آن کلیک کنید \n\n";
+
+        $text .= "مجموع سبد خرید شما: " . priceFormat($cart->total());
+
 
         return $this->telegram->editMessage(
-            "برای حذف هریک از آیتم ها از سبد خرید خود، لطفا روی آن کلیک کنید",
+            $text,
             $this->prepareCartListButtons($items),
-            message_to_edit: $loading_message);
+            message_to_edit: $loading_message
+        );
     }
 
 
@@ -34,16 +40,13 @@ class CartController extends BaseController
             return $this->telegram->editMessage("❌دستور وارد شده اشتباه است❌", message_to_edit: $loading_message);
         }
 
-        $record = (new CartItem)->byChatIdAndProductId($this->telegram->chatId(), $product->id);
+        $cart = $this->user->findOrCreateActiveCart();
 
-        if ($record) {
+        if ($cart->has($product->id)) {
             return $this->telegram->editMessage("محصول مورد نظر در سبد خرید شما موجود است", message_to_edit: $loading_message);
         }
 
-        (new CartItem)->create([
-            'chat_id' => $this->telegram->chatId(),
-            'product_id' => $product->id
-        ]);
+        $cart->addItem($product->id);
 
         $this->telegram->editMessage("✅محصول {$product->name} به سبد خرید اضافه شد✅", message_to_edit: $loading_message);
     }
@@ -53,8 +56,9 @@ class CartController extends BaseController
         $loading_message = $this->showLoading();
 
         $item = (new CartItem)->find($id);
+        $cart = $this->user->findOrCreateActiveCart();
 
-        if (! $item || $item->chat_id !== $this->telegram->chatId()) {
+        if (! $item || $item->cart_id !== $cart->id) {
             return $this->telegram->editMessage("❌ دستور وارد شده معتبر نیست❌", message_to_edit: $loading_message);
         }
 

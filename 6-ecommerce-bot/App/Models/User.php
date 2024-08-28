@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Enums\CartStatus;
+
 class User extends Model
 {
     protected string $table = 'users';
@@ -23,5 +25,16 @@ class User extends Model
     public function latestActiveCommand(): ?Command
     {
         return (new Command)->latestUserActiveCommand($this->id);
+    }
+
+    public function findOrCreateActiveCart()
+    {
+        $cart = (new Cart)->activeCartFor($this->id);
+
+        if (! $cart) {
+            $cart = (new Cart)->insert(user_id: $this->id);
+        }
+
+        return $cart;
     }
 }
