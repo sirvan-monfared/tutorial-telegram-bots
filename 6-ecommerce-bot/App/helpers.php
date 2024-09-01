@@ -109,9 +109,9 @@ function auth(): Authenticator
     return new Authenticator;
 }
 
-function url($route_name, $params = []): string
+function url($route): string
 {
-    return rtrim(SITE_URL, '/') . route($route_name, $params);
+    return SITE_URL . $route;
 }
 
 function generateRandom($length = 20): string
