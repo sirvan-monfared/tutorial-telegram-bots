@@ -8,6 +8,8 @@ class User extends Model
 {
     protected string $table = 'users';
 
+    protected array $orders = [];
+
     public function updateName(string $name): User
     {
         return $this->update([
@@ -36,5 +38,14 @@ class User extends Model
         }
 
         return $cart;
+    }
+
+    public function orders()
+    {
+        if (! $this->orders) {
+            $this->orders = (new Order)->forUser($this->id);
+        }
+
+        return $this->orders;
     }
 }

@@ -12,6 +12,7 @@ class StartController extends BaseController
             ['مشاهده محصولات' => '/products', 'مشاهده سبدخرید' => '/cart'],
             ['اطلاعات کاربری' => '/profile'],
             ['پرداخت سبد خرید' => '/checkout'],
+            ['سفارش های من' => '/orders']
         ];
 
         $this->telegram->sendMessage("یکی از گزینه های زیر را نتخاب کنید", $buttons);

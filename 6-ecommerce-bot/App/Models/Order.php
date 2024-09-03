@@ -58,4 +58,9 @@ class Order extends Model
 
         return $this->user;
     }
+
+    public function forUser(int $user_id): bool|array
+    {
+        return $this->whereAll('user_id', $user_id);
+    }
 }

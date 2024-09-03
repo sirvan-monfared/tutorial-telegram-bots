@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StartController;
@@ -21,3 +22,5 @@ $router->after('/profile/name', ProfileController::class, 'updateName');
 $router->exact('/profile/address', ProfileController::class, 'editAddress');
 $router->after('/profile/address', ProfileController::class, 'updateAddress');
 
+$router->exact('/orders', OrderController::class, 'index');
+$router->startsWith('/order/', OrderController::class, 'show');
