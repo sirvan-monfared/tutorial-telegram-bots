@@ -11,6 +11,8 @@
 
     RewriteEngine On
 
+    RewriteRule ^callback$  payment_callback.php [QSA]
+
     # Redirect Trailing Slashes If Not A Folder...
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_URI} (.+)/$

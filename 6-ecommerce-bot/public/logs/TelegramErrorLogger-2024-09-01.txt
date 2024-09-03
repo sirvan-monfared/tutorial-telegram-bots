@@ -1,0 +1,21 @@
+============[Date]============
+[ 2024-09-01 15:52:15  UTC ] 
+==========[Response]==========
+ok:			False
+error_code:		400
+description:		Bad Request: chat_id is empty
+=========[Sent Data]==========
+[ref]
+ref.chat_id= 
+ref.reply_markup= 
+ref.text= پرداخت شما با موفقیت انجام شد
+
+
+============[Trace]===========
+#0 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(1797): TelegramErrorLogger::log(Array, Array)
+#1 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(119): Telegram->sendAPIRequest('https://api.tel...', Array)
+#2 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(177): Telegram->endpoint('sendMessage', Array)
+#3 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\App\Services\TelegramService.php(34): Telegram->sendMessage(Array)
+#4 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\public\callback.php(19): App\Services\TelegramService->sendMessage('\xD9\xBE\xD8\xB1\xD8\xAF\xD8\xA7\xD8\xAE\xD8\xAA \xD8\xB4...')
+#5 {main}
+

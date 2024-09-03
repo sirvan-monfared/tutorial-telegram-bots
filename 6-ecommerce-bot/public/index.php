@@ -7,6 +7,11 @@ use App\Services\UserService;
 require_once 'init.php';
 
 $telegram = new TelegramService();
+
+if (! $telegram->chatId()) {
+    die('please go back!');
+}
+
 $user = UserService::findOrCreateUser($telegram->chatId());
 $router = new BotRouter($telegram, $user);
 

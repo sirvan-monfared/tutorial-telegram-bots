@@ -8,28 +8,30 @@ class TelegramService
 {
     protected Telegram $provider;
 
-    protected int $chat_id;
-    protected string $text;
-    protected array $data;
+    protected ?int $chat_id = null;
+    protected ?string $text = null;
+    protected ?array $data = null;
 
-    public function __construct($use_proxy = true)
+    const KEYBOARD_BUTTON_CALLBACK = 'callback';
+    const KEYBOARD_BUTTON_URL = 'url';
+
+    public function __construct($use_proxy = true, ?int $chat_id = null)
     {
         $proxy_data = $use_proxy ? ['url' => env('PROXY_URL'), 'port' => env('PROXY_PORT')] : [];
 
         $this->provider = new Telegram(env('TELEGRAM_BOT_TOKEN'), proxy: $proxy_data);
 
-        $this->chat_id = $this->provider->ChatID();
+        $this->chat_id = $chat_id ?? $this->provider->ChatID();
         $this->text = $this->provider->Text();
         $this->data = $this->provider->getData();
     }
 
-    public function sendMessage(string $text, ?array $keyboard = null)
+    public function sendMessage(string $text, ?array $keyboard = null, $keyboard_buttons_type = self::KEYBOARD_BUTTON_CALLBACK)
     {
 
         if ($keyboard) {
-            $keyboard = $this->prepareKeyboard($keyboard);
+            $keyboard = $this->prepareKeyboard($keyboard, $keyboard_buttons_type);
         }
-
 
         return $this->provider->sendMessage([
             'chat_id' => $this->chatId(),
@@ -38,7 +40,7 @@ class TelegramService
         ]);
     }
 
-    public function editMessage(string $text, ?array $keyboard = null, mixed $message_to_edit = null)
+    public function editMessage(string $text, ?array $keyboard = null, mixed $message_to_edit = null, $keyboard_buttons_type = self::KEYBOARD_BUTTON_CALLBACK)
     {
 
         $message_id = $this->provider->MessageID();
@@ -50,7 +52,7 @@ class TelegramService
         }
 
         if ($keyboard) {
-            $keyboard = $this->prepareKeyboard($keyboard);
+            $keyboard = $this->prepareKeyboard($keyboard, $keyboard_buttons_type);
         }
 
         return $this->provider->editMessageText([
@@ -77,12 +79,12 @@ class TelegramService
         return $this->data;
     }
 
-    public function provider()
+    public function provider(): Telegram
     {
         return $this->provider;
     }
 
-    protected function prepareKeyboard(array $structure)
+    protected function prepareKeyboard(array $structure, $buttons_type)
     {
         $buttons = [];
 
@@ -90,7 +92,9 @@ class TelegramService
             $row = [];
 
             foreach ($keyboardRow as $title => $action) {
-                $row[] = $this->provider->buildInlineKeyboardButton($title, callback_data: $action);
+                $button_url = $buttons_type === self::KEYBOARD_BUTTON_URL ? $action : null;
+                $button_callback = $buttons_type === self::KEYBOARD_BUTTON_CALLBACK ? $action : null;
+                $row[] = $this->provider->buildInlineKeyboardButton($title, $button_url, $button_callback);
             }
 
             $buttons[] = $row;

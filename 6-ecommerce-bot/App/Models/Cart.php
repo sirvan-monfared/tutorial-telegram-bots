@@ -48,10 +48,17 @@ class Cart extends Model
         return (new CartItem)->insert($this->id, $product_id);
     }
 
-    public function total(): int
+    public function total(): ?int
     {
         return array_reduce($this->items(), function($sum, $item) {
             return $sum + $item->product()->price;
         });
+    }
+
+    public function close(): Cart
+    {
+        return $this->update([
+            'status' => CartStatus::CLOSED->value
+        ]);
     }
 }

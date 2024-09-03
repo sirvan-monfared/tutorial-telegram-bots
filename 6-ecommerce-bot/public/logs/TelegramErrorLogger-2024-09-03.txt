@@ -1,0 +1,148 @@
+============[Date]============
+[ 2024-09-03 14:00:08  UTC ] 
+==========[Response]==========
+ok:			False
+error_code:		400
+description:		Bad Request: inline keyboard button URL 'اتصال به درگاه پرداخت' is invalid: Disallowed character in URL host
+=========[Sent Data]==========
+[ref]
+ref.update_id= 569208091
+ref.callback_query.id= 4025614895499416204
+ref.callback_query.from.id= 937286507
+ref.callback_query.from.is_bot= false
+ref.callback_query.from.first_name= لاراپلاس | laraplus.ir
+ref.callback_query.from.username= laraplus_ir
+ref.callback_query.from.language_code= en
+ref.callback_query.message.message_id= 165
+ref.callback_query.message.from.id= 7512086433
+ref.callback_query.message.from.is_bot= true
+ref.callback_query.message.from.first_name= فروشگاه لاراپلاس
+ref.callback_query.message.from.username= laraplusecommercebot
+ref.callback_query.message.chat.id= 937286507
+ref.callback_query.message.chat.first_name= لاراپلاس | laraplus.ir
+ref.callback_query.message.chat.username= laraplus_ir
+ref.callback_query.message.chat.type= private
+ref.callback_query.message.date= 1725371222
+ref.callback_query.message.text= یکی از گزینه های زیر را نتخاب کنید
+ref.callback_query.message.reply_markup.inline_keyboard.0.0.text= مشاهده محصولات
+ref.callback_query.message.reply_markup.inline_keyboard.0.0.callback_data= /products
+ref.callback_query.message.reply_markup.inline_keyboard.0.1.text= مشاهده سبدخرید
+ref.callback_query.message.reply_markup.inline_keyboard.0.1.callback_data= /cart
+ref.callback_query.message.reply_markup.inline_keyboard.1.0.text= اطلاعات کاربری
+ref.callback_query.message.reply_markup.inline_keyboard.1.0.callback_data= /profile
+ref.callback_query.message.reply_markup.inline_keyboard.2.0.text= پرداخت سبد خرید
+ref.callback_query.message.reply_markup.inline_keyboard.2.0.callback_data= /checkout
+ref.callback_query.chat_instance= -7928342012465071240
+ref.callback_query.data= /checkout
+
+
+[ref]
+ref.reply_markup= {"inline_keyboard":[[{"text":"https:\/\/gateway.zibal.ir\/start\/3742855044","url":"\u0627\u062a\u0635\u0627\u0644 \u0628\u0647 \u062f\u0631\u06af\u0627\u0647 \u067e\u0631\u062f\u0627\u062e\u062a"}]]}
+ref.text= مجموع سبد خرید شما: 1,400,000 تومان 
+
+محصولات موجود در سبد خرید: 
+
+کرم نرم کننده پوست - 120,000 تومان 
+
+شامپو بدن گلرنگ - 20,000 تومان 
+
+--------------------------------------- 
+
+برای اتصال به درگاه پرداخت روی لینک زیر کلیک کنید 
+
+https://gateway.zibal.ir/start/3742855044
+ref.message_id= 175
+
+
+============[Trace]===========
+#0 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(1797): TelegramErrorLogger::log(Array, Array)
+#1 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(119): Telegram->sendAPIRequest('https://api.tel...', Array)
+#2 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(687): Telegram->endpoint('editMessageText', Array)
+#3 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\App\Services\TelegramService.php(56): Telegram->editMessageText(Array)
+#4 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\App\Http\Controllers\CheckoutController.php(54): App\Services\TelegramService->editMessage('\xD9\x85\xD8\xAC\xD9\x85\xD9\x88\xD8\xB9 \xD8\xB3\xD8\xA8...', '{"inline_keyboa...', Array)
+#5 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\App\Core\BotRouter.php(67): App\Http\Controllers\CheckoutController->pay('/checkout')
+#6 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\public\index.php(21): App\Core\BotRouter->match()
+#7 {main}
+
+============[Date]============
+[ 2024-09-03 14:12:20  UTC ] 
+==========[Response]==========
+ok:			False
+error_code:		400
+description:		Bad Request: inline keyboard button URL '/products' is invalid: URL host is empty
+=========[Sent Data]==========
+[ref]
+ref.update_id= 569208102
+ref.message.message_id= 185
+ref.message.from.id= 937286507
+ref.message.from.is_bot= false
+ref.message.from.first_name= لاراپلاس | laraplus.ir
+ref.message.from.username= laraplus_ir
+ref.message.from.language_code= en
+ref.message.chat.id= 937286507
+ref.message.chat.first_name= لاراپلاس | laraplus.ir
+ref.message.chat.username= laraplus_ir
+ref.message.chat.type= private
+ref.message.date= 1725372737
+ref.message.text= /start
+ref.message.entities.0.offset= 0
+ref.message.entities.0.length= 6
+ref.message.entities.0.type= bot_command
+
+
+[ref]
+ref.reply_markup= {"inline_keyboard":[[{"text":"\u0645\u0634\u0627\u0647\u062f\u0647 \u0645\u062d\u0635\u0648\u0644\u0627\u062a","url":"\/products"},{"text":"\u0645\u0634\u0627\u0647\u062f\u0647 \u0633\u0628\u062f\u062e\u0631\u06cc\u062f","url":"\/cart"}],[{"text":"\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u06a9\u0627\u0631\u0628\u0631\u06cc","url":"\/profile"}],[{"text":"\u067e\u0631\u062f\u0627\u062e\u062a \u0633\u0628\u062f \u062e\u0631\u06cc\u062f","url":"\/checkout"}]]}
+ref.text= یکی از گزینه های زیر را نتخاب کنید
+
+
+============[Trace]===========
+#0 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(1797): TelegramErrorLogger::log(Array, Array)
+#1 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(119): Telegram->sendAPIRequest('https://api.tel...', Array)
+#2 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(177): Telegram->endpoint('sendMessage', Array)
+#3 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\App\Services\TelegramService.php(33): Telegram->sendMessage(Array)
+#4 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\App\Http\Controllers\StartController.php(17): App\Services\TelegramService->sendMessage('\xDB\x8C\xDA\xA9\xDB\x8C \xD8\xA7\xD8\xB2 \xDA\xAF\xD8...', '{"inline_keyboa...')
+#5 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\App\Core\BotRouter.php(67): App\Http\Controllers\StartController->handle('/start')
+#6 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\public\index.php(21): App\Core\BotRouter->match()
+#7 {main}
+
+============[Date]============
+[ 2024-09-03 14:12:42  UTC ] 
+==========[Response]==========
+ok:			False
+error_code:		400
+description:		Bad Request: inline keyboard button URL '/products' is invalid: URL host is empty
+=========[Sent Data]==========
+[ref]
+ref.update_id= 569208103
+ref.message.message_id= 186
+ref.message.from.id= 937286507
+ref.message.from.is_bot= false
+ref.message.from.first_name= لاراپلاس | laraplus.ir
+ref.message.from.username= laraplus_ir
+ref.message.from.language_code= en
+ref.message.chat.id= 937286507
+ref.message.chat.first_name= لاراپلاس | laraplus.ir
+ref.message.chat.username= laraplus_ir
+ref.message.chat.type= private
+ref.message.date= 1725372754
+ref.message.text= /start
+ref.message.entities.0.offset= 0
+ref.message.entities.0.length= 6
+ref.message.entities.0.type= bot_command
+
+
+[ref]
+ref.reply_markup= {"inline_keyboard":[[{"text":"\u0645\u0634\u0627\u0647\u062f\u0647 \u0645\u062d\u0635\u0648\u0644\u0627\u062a","url":"\/products"},{"text":"\u0645\u0634\u0627\u0647\u062f\u0647 \u0633\u0628\u062f\u062e\u0631\u06cc\u062f","url":"\/cart"}],[{"text":"\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u06a9\u0627\u0631\u0628\u0631\u06cc","url":"\/profile"}],[{"text":"\u067e\u0631\u062f\u0627\u062e\u062a \u0633\u0628\u062f \u062e\u0631\u06cc\u062f","url":"\/checkout"}]]}
+ref.text= یکی از گزینه های زیر را نتخاب کنید
+
+
+============[Trace]===========
+#0 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(1797): TelegramErrorLogger::log(Array, Array)
+#1 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(119): Telegram->sendAPIRequest('https://api.tel...', Array)
+#2 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\vendor\eleirbag89\telegrambotphp\Telegram.php(177): Telegram->endpoint('sendMessage', Array)
+#3 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\App\Services\TelegramService.php(33): Telegram->sendMessage(Array)
+#4 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\App\Http\Controllers\StartController.php(17): App\Services\TelegramService->sendMessage('\xDB\x8C\xDA\xA9\xDB\x8C \xD8\xA7\xD8\xB2 \xDA\xAF\xD8...', '{"inline_keyboa...')
+#5 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\App\Core\BotRouter.php(67): App\Http\Controllers\StartController->handle('/start')
+#6 D:\laragon-new\www\php\tutorial-bots\6-ecommerce-bot\public\index.php(21): App\Core\BotRouter->match()
+#7 {main}
+

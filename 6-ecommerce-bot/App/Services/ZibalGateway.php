@@ -12,13 +12,13 @@ class ZibalGateway
     private string $gateway_url;
     private string $verify_url;
     private int $track_id;
-    private int $support_id;
+    private ?int $support_id = null;
     private object $verify_response;
 
     public function __construct()
     {
         $this->merchant_id = env('ZIBAL_MERCHANT_ID');
-        $this->callback_url = url('callback.php');
+        $this->callback_url = url('callback');
 
         $this->request_url = 'https://gateway.zibal.ir/v1/request';
         $this->gateway_url = 'https://gateway.zibal.ir/start/';
@@ -84,9 +84,14 @@ class ZibalGateway
         return $this->track_id;
     }
 
-    public function supportId(): int
+    public function supportId(): ?int
     {
         return $this->support_id;
+    }
+
+    public function verifyResponse()
+    {
+        return $this->verify_response;
     }
 
     private function message(int $code):string
