@@ -1,0 +1,28 @@
+<?php $_shouldextend[1]=1; ?>
+
+<?php $this->startSection('content'); ?>
+ <section class="section-b-space shop-section">
+ <div class="container-fluid-lg">
+ <div class="row">
+ <div class="col-12">
+ <?php echo $this->runChild('front.search._filter'); ?>
+
+ <div class="row g-sm-4 g-3 row-cols-xxl-5 row-cols-xl-3 row-cols-lg-2 row-cols-md-3 row-cols-2 product-list-section">
+
+ <?php $__currentLoopData = $products; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $product): $loop = $this->incrementLoopIndices();  ?>
+ <?php  $this->startComponent('front.components.product', ['product' => $product]); ?>
+ <?php echo $this->renderComponent(); ?>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+
+ </div>
+
+ <?php echo $paginator->render(); ?>
+
+
+ </div>
+ </div>
+ </div>
+ </section>
+<?php $this->stopSection(); ?>
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('front.layouts.main'); } ?>

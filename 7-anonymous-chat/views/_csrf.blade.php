@@ -1,0 +1,1 @@
+<input type="hidden" name="_token" value="{{ \App\Core\CSRF::token() }}">

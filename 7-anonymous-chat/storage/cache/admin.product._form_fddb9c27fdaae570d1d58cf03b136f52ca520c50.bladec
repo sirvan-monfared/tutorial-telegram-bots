@@ -1,0 +1,210 @@
+<div class="card">
+ <div class="card-body">
+ <div class="card-header-2">
+ <h5><?php echo \htmlentities($title ?? ''??'', ENT_QUOTES, 'UTF-8', false); ?></h5>
+ </div>
+
+ <?php  $this->startComponent('admin.components.input', ['name' => 'name', 'label' => 'نام محصول', 'required' => true, 'placeholder' => 'نام محصول را وارد کنید']); ?>
+ <?php echo \htmlentities(old('name', $product->name)??'', ENT_QUOTES, 'UTF-8', false); ?>
+
+ <?php echo $this->renderComponent(); ?>
+
+ <?php  $this->startComponent('admin.components.input', ['name' => 'slug', 'label' => 'نامک', 'required' => true]); ?>
+ <?php echo \htmlentities(old('slug', $product->slug)??'', ENT_QUOTES, 'UTF-8', false); ?>
+
+ <?php echo $this->renderComponent(); ?>
+
+ <div class="mb-4 row align-items-center">
+ <label class="col-sm-3 col-form-label form-label-title required" for="category_id">دسته بندی</label>
+ <div class="col-sm-9">
+ <select class="js-example-basic-single w-100" name="category_id" id="category_id">
+ <option disabled>انتخاب کنید</option>
+ <?php $__currentLoopData = $categories; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $category): $loop = $this->incrementLoopIndices();  ?>
+ <option value="<?php echo \htmlentities($category->id??'', ENT_QUOTES, 'UTF-8', false); ?>" <?php if($category->id === $product->category_id) echo 'selected'; ?>><?php echo \htmlentities($category->name??'', ENT_QUOTES, 'UTF-8', false); ?></option>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ </select>
+ <div class="help-block text-danger fs-7 "><?php echo \htmlentities($errors['category_id'] ?? null??'', ENT_QUOTES, 'UTF-8', false); ?></div>
+ </div>
+ </div>
+
+
+ <div class="row align-items-center">
+ <label
+ class="col-sm-3 col-form-label form-label-title">بازگشت وجه</label>
+ <div class="col-sm-9">
+ <label class="switch">
+ <input type="checkbox" checked=""><span
+ class="switch-state"></span>
+ </label>
+ </div>
+ </div>
+ </div>
+</div>
+
+<div class="card">
+ <div class="card-body">
+ <div class="card-header-2">
+ <h5>قیمت محصول</h5>
+ </div>
+
+
+ <?php  $this->startComponent('admin.components.input', ['name' => 'price', 'label' => 'قیمت نهایی', 'required' => true]); ?>
+ <?php echo \htmlentities(old('price', $product->price)??'', ENT_QUOTES, 'UTF-8', false); ?>
+
+ <?php echo $this->renderComponent(); ?>
+
+ <?php  $this->startComponent('admin.components.input', ['name' => 'prev_price', 'label' => 'قیمت قبل از تخفیف']); ?>
+ <?php echo \htmlentities(old('prev_price', $product->prev_price)??'', ENT_QUOTES, 'UTF-8', false); ?>
+
+ <?php echo $this->renderComponent(); ?>
+
+ <?php  $this->startComponent('admin.components.input', ['name' => 'stock', 'label' => 'تعداد در انبار', 'size' => 5]); ?>
+ <?php echo \htmlentities(old('stock', $product->stock)??'', ENT_QUOTES, 'UTF-8', false); ?>
+
+ <?php echo $this->renderComponent(); ?>
+
+ </div>
+</div>
+
+<div class="card">
+ <div class="card-body">
+ <div class="card-header-2">
+ <h5>توضیحات</h5>
+ </div>
+
+ <div class="row">
+ <div class="col-12">
+ <div class="row">
+ <label for="description" class="form-label-title col-sm-3 mb-0">توضیحات محصول</label>
+ <div class="col-sm-9">
+ <textarea class="ckeditor" name="description"
+ id="description"><?php echo \htmlentities(old('description', $product->description)??'', ENT_QUOTES, 'UTF-8', false); ?></textarea>
+ <p class="help-block fs-6 text-danger"><?php echo \htmlentities($errors['description'] ?? null??'', ENT_QUOTES, 'UTF-8', false); ?></p>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+</div>
+
+<div class="card">
+ <div class="card-body">
+ <div class="card-header-2">
+ <h5>تصویر محصول</h5>
+ </div>
+
+ <div class="row align-items-center">
+ <label for="image" class="col-sm-3 col-form-label form-label-title">تصویر شاخص</label>
+ <div class="col-sm-9">
+ <input type="file" class="form-control form-choose" name="image" id="image">
+ </div>
+ <?php if($product->hasFeaturedImage()): ?>
+ <img src="<?php echo \htmlentities($product->featuredImage()??'', ENT_QUOTES, 'UTF-8', false); ?>" alt="" height="200" style="width: auto">
+ <?php endif; ?>
+ </div>
+
+
+ <div class="row align-items-center mt-5">
+ <label for="gallery" class="col-sm-3 col-form-label form-label-title">گالری تصاویر</label>
+ <div class="col-sm-9">
+ <input type="file" class="form-control form-choose" name="gallery[]" id="gallery" multiple>
+ </div>
+
+ <?php $__currentLoopData = $product->galleryImages(); $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $image): $loop = $this->incrementLoopIndices();  ?>
+ <img src="<?php echo \htmlentities($image->path()??'', ENT_QUOTES, 'UTF-8', false); ?>" alt="" height="200" style="width: auto">
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ </div>
+ </div>
+</div>
+
+<div class="card">
+ <div class="card-body">
+ <div class="card-header-2">
+ <h5>ویژگی های محصول</h5>
+ </div>
+
+ <div id="custom-fields-placeholder">
+ <?php $__currentLoopData = $product->customFields(); $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $field): $loop = $this->incrementLoopIndices();  ?>
+ <div class="row align-items-center">
+ <div class="col-sm-6">
+ <label class="col-sm-3 col-form-label form-label-title">عنوان ویژگی</label>
+ <div class="bs-example">
+ <input type="text" name="custom_field_key[]" value="<?php echo \htmlentities($field->name??'', ENT_QUOTES, 'UTF-8', false); ?>" class="form-control">
+ </div>
+ </div>
+
+ <div class="col-sm-6">
+ <label class="col-sm-3 col-form-label form-label-title">مقدار ویژگی</label>
+ <div class="bs-example">
+ <input type="text" name="custom_field_value[]" value="<?php echo \htmlentities($field->value??'', ENT_QUOTES, 'UTF-8', false); ?>" class="form-control">
+ </div>
+ </div>
+ </div>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ </div>
+
+ <a href="javascript:" id="add-custom-fields" class="add-option">
+ <i class="ri-add-line me-2"></i> افزودن ویژگی جدید
+ </a>
+ </div>
+</div>
+
+<div class="card">
+ <div class="card-body">
+ <div class="card-header-2">
+ <h5>سئو و موتور جستجو</h5>
+ </div>
+
+ <div class="seo-view">
+ <span class="link"><?php echo \htmlentities(url('products.show', ['id' => $product->id])??'', ENT_QUOTES, 'UTF-8', false); ?></span>
+ <h5><?php echo \htmlentities($product->seo_title??'', ENT_QUOTES, 'UTF-8', false); ?></h5>
+ <p><?php echo \htmlentities($product->seo_description??'', ENT_QUOTES, 'UTF-8', false); ?></p>
+ </div>
+
+ <?php  $this->startComponent('admin.components.input', ['name' => 'seo_title', 'label' => 'عنوان سئو']); ?>
+ <?php echo \htmlentities(old('seo_title', $product->seo_title)??'', ENT_QUOTES, 'UTF-8', false); ?>
+
+ <?php echo $this->renderComponent(); ?>
+
+ <?php  $this->startComponent('admin.components.input', ['name' => 'seo_description', 'label' => 'توضیحات سئو']); ?>
+ <?php echo \htmlentities(old('seo_description', $product->seo_description)??'', ENT_QUOTES, 'UTF-8', false); ?>
+
+ <?php echo $this->renderComponent(); ?>
+
+ <?php  $this->startComponent('admin.components.input', ['name' => 'seo_keywords', 'label' => 'کلمات کلیدی سئو']); ?>
+ <?php echo \htmlentities(old('seo_keywords', $product->seo_keywords)??'', ENT_QUOTES, 'UTF-8', false); ?>
+
+ <?php echo $this->renderComponent(); ?>
+
+
+ </div>
+</div>
+
+<div class="card">
+ <div class="card-body">
+ <div class="card-header-2 d-flex justify-content-end mb-0">
+ <button type="submit" class="btn btn-theme">ذخیره</button>
+ </div>
+ </div>
+</div>
+
+<template id="custom-fields-template">
+ <div class="row align-items-center">
+ <div class="col-sm-6">
+ <label class="col-sm-3 col-form-label form-label-title">عنوان ویژگی</label>
+ <div class="bs-example">
+ <input type="text" name="custom_field_key[]" class="form-control">
+ </div>
+ </div>
+
+ <div class="col-sm-6">
+ <label class="col-sm-3 col-form-label form-label-title">مقدار ویژگی</label>
+ <div class="bs-example">
+ <input type="text" name="custom_field_value[]" class="form-control">
+ </div>
+ </div>
+ </div>
+</template>

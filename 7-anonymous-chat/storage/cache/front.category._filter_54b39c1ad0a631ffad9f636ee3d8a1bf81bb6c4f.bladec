@@ -1,0 +1,385 @@
+<div class="show-button">
+ <div class="top-filter-menu-2">
+ <div class="sidebar-filter-menu" data-bs-toggle="collapse"
+ data-bs-target="#collapseExample">
+ <a href="javascript:void(0)"><i class="fa-solid fa-filter"></i> منوی فیلتر</a>
+ </div>
+
+ <div class="ms-auto d-flex align-items-center">
+ <div class="category-dropdown me-md-3">
+ <h5 class="text-content">مرتب سازی بر اساس :</h5>
+ <div class="dropdown">
+ <button class="dropdown-toggle" type="button" id="dropdownMenuButton1"
+ data-bs-toggle="dropdown">
+ <span>محبوبترین</span> <i class="fa-solid fa-angle-down"></i>
+ </button>
+ <ul class="dropdown-menu">
+ <li>
+ <a class="dropdown-item" id="pop" href="javascript:void(0)">محبوبیت</a>
+ </li>
+ <li>
+ <a class="dropdown-item" id="low" href="javascript:void(0)">کمترین
+ قمت</a>
+ </li>
+ <li>
+ <a class="dropdown-item" id="high" href="javascript:void(0)">بیشترین
+ قیمت</a>
+ </li>
+ <li>
+ <a class="dropdown-item" id="rating"
+ href="javascript:void(0)">امتیاز</a>
+ </li>
+ <li>
+ <a class="dropdown-item" id="aToz" href="javascript:void(0)">به ترتیب
+ حروف الفبا</a>
+ </li>
+ <li>
+ <a class="dropdown-item" id="zToa" href="javascript:void(0)">برعکس حروف
+ الفبا</a>
+ </li>
+ <li>
+ <a class="dropdown-item" id="off" href="javascript:void(0)">بیشترین
+ تخفیف</a>
+ </li>
+ </ul>
+ </div>
+ </div>
+
+ </div>
+ </div>
+</div>
+
+<div class="top-filter-category" id="collapseExample">
+ <div class="row g-sm-4 g-3">
+ <div class="col-xl-3 col-md-6">
+ <div class="category-title">
+ <h3>دسته ها</h3>
+ </div>
+ <ul class="category-list custom-padding custom-height">
+ <li>
+ <div class="form-check ps-0 m-0 category-list-box">
+ <input class="checkbox_animated" type="checkbox" id="fruit">
+ <label class="form-check-label" for="fruit">
+ <span class="name">میوه و سبزیجات</span>
+ <span class="number">(15)</span>
+ </label>
+ </div>
+ </li>
+ <li>
+ <div class="form-check ps-0 m-0 category-list-box">
+ <input class="checkbox_animated" type="checkbox" id="cake">
+ <label class="form-check-label" for="cake">
+ <span class="name">نانوایی، کیک و لبنیات</span>
+ <span class="number">(12)</span>
+ </label>
+ </div>
+ </li>
+ <li>
+ <div class="form-check ps-0 m-0 category-list-box">
+ <input class="checkbox_animated" type="checkbox" id="behe">
+ <label class="form-check-label" for="behe">
+ <span class="name">نوشیدنی ها</span>
+ <span class="number">(20)</span>
+ </label>
+ </div>
+ </li>
+ <li>
+ <div class="form-check ps-0 m-0 category-list-box">
+ <input class="checkbox_animated" type="checkbox" id="snacks">
+ <label class="form-check-label" for="snacks">
+ <span class="name">تنقلات و غذاهای مارک دار</span>
+ <span class="number">(05)</span>
+ </label>
+ </div>
+ </li>
+ <li>
+ <div class="form-check ps-0 m-0 category-list-box">
+ <input class="checkbox_animated" type="checkbox" id="beauty">
+ <label class="form-check-label" for="beauty">
+ <span class="name">زیبایی و خانگی</span>
+ <span class="number">(30)</span>
+ </label>
+ </div>
+ </li>
+ <li>
+ <div class="form-check ps-0 m-0 category-list-box">
+ <input class="checkbox_animated" type="checkbox" id="pets">
+ <label class="form-check-label" for="pets">
+ <span class="name">آشپزخانه، باغ و حیوانات خانگی</span>
+ <span class="number">(50)</span>
+ </label>
+ </div>
+ </li>
+ <li>
+ <div class="form-check ps-0 m-0 category-list-box">
+ <input class="checkbox_animated" type="checkbox" id="egg">
+ <label class="form-check-label" for="egg">
+ <span class="name">تخم مرغ، گوشت و ماهی</span>
+ <span class="number">(19)</span>
+ </label>
+ </div>
+ </li>
+ <li>
+ <div class="form-check ps-0 m-0 category-list-box">
+ <input class="checkbox_animated" type="checkbox" id="food">
+ <label class="form-check-label" for="food">
+ <span class="name">غذاهای لذیذ و جهانی</span>
+ <span class="number">(30)</span>
+ </label>
+ </div>
+ </li>
+ <li>
+ <div class="form-check ps-0 m-0 category-list-box">
+ <input class="checkbox_animated" type="checkbox" id="care">
+ <label class="form-check-label" for="care">
+ <span class="name">مراقبت کودک</span>
+ <span class="number">(20)</span>
+ </label>
+ </div>
+ </li>
+ <li>
+ <div class="form-check ps-0 m-0 category-list-box">
+ <input class="checkbox_animated" type="checkbox" id="fish">
+ <label class="form-check-label" for="fish">
+ <span class="name">ماهی و غذاهای دریایی</span>
+ <span class="number">(10)</span>
+ </label>
+ </div>
+ </li>
+ <li>
+ <div class="form-check ps-0 m-0 category-list-box">
+ <input class="checkbox_animated" type="checkbox" id="marinades">
+ <label class="form-check-label" for="marinades">
+ <span class="name">مارینادها</span>
+ <span class="number">(05)</span>
+ </label>
+ </div>
+ </li>
+ <li>
+ <div class="form-check ps-0 m-0 category-list-box">
+ <input class="checkbox_animated" type="checkbox" id="lamb">
+ <label class="form-check-label" for="lamb">
+ <span class="name">گوشت گوسفند و بره</span>
+ <span class="number">(09)</span>
+ </label>
+ </div>
+ </li>
+ <li>
+ <div class="form-check ps-0 m-0 category-list-box">
+ <input class="checkbox_animated" type="checkbox" id="other">
+ <label class="form-check-label" for="other">
+ <span class="name">بندر و گوشت های دیگر</span>
+ <span class="number">(06)</span>
+ </label>
+ </div>
+ </li>
+ <li>
+ <div class="form-check ps-0 m-0 category-list-box">
+ <input class="checkbox_animated" type="checkbox" id="pour">
+ <label class="form-check-label" for="pour">
+ <span class="name">طیور</span>
+ <span class="number">(01)</span>
+ </label>
+ </div>
+ </li>
+ <li>
+ <div class="form-check ps-0 m-0 category-list-box">
+ <input class="checkbox_animated" type="checkbox" id="salami">
+ <label class="form-check-label" for="salami">
+ <span class="name">سوسیس، بیکن و سالامی</span>
+ <span class="number">(03)</span>
+ </label>
+ </div>
+ </li>
+ </ul>
+ </div>
+
+ <div class="col-xl-3 col-md-6">
+ <div class="category-title">
+ <h3>قیمت</h3>
+ </div>
+ <div class="range-slider">
+ <input type="text" class="js-range-slider" value="">
+ </div>
+ </div>
+
+ <div class="col-xl-3 col-md-6">
+ <div class="category-title">
+ <h3>تخفیف</h3>
+ </div>
+ <ul class="category-list">
+ <li>
+ <div class="form-check ps-0 m-0 category-list-box">
+ <input class="checkbox_animated" type="checkbox"
+ id="flexCheckDefault">
+ <label class="form-check-label" for="flexCheckDefault">
+ <span class="name">تا 5%</span>
+ <span class="number">(06)</span>
+ </label>
+ </div>
+ </li>
+
+ <li>
+ <div class="form-check ps-0 m-0 category-list-box">
+ <input class="checkbox_animated" type="checkbox"
+ id="flexCheckDefault1">
+ <label class="form-check-label" for="flexCheckDefault1">
+ <span class="name">5% - 10%</span>
+ <span class="number">(08)</span>
+ </label>
+ </div>
+ </li>
+
+ <li>
+ <div class="form-check ps-0 m-0 category-list-box">
+ <input class="checkbox_animated" type="checkbox"
+ id="flexCheckDefault2">
+ <label class="form-check-label" for="flexCheckDefault2">
+ <span class="name">10% - 15%</span>
+ <span class="number">(10)</span>
+ </label>
+ </div>
+ </li>
+
+ <li>
+ <div class="form-check ps-0 m-0 category-list-box">
+ <input class="checkbox_animated" type="checkbox"
+ id="flexCheckDefault3">
+ <label class="form-check-label" for="flexCheckDefault3">
+ <span class="name">15% - 25%</span>
+ <span class="number">(14)</span>
+ </label>
+ </div>
+ </li>
+
+ <li>
+ <div class="form-check ps-0 m-0 category-list-box">
+ <input class="checkbox_animated" type="checkbox"
+ id="flexCheckDefault4">
+ <label class="form-check-label" for="flexCheckDefault4">
+ <span class="name">بیشتر از 25%</span>
+ <span class="number">(13)</span>
+ </label>
+ </div>
+ </li>
+ </ul>
+ </div>
+
+ <div class="col-xl-3 col-md-6">
+ <div class="category-title">
+ <h3>وزن بسته</h3>
+ </div>
+ <ul class="category-list custom-padding custom-height">
+ <li>
+ <div class="form-check ps-0 m-0 category-list-box">
+ <input class="checkbox_animated" type="checkbox"
+ id="flexCheckDefault5">
+ <label class="form-check-label" for="flexCheckDefault5">
+ <span class="name">400 تا 500 گرم</span>
+ <span class="number">(05)</span>
+ </label>
+ </div>
+ </li>
+
+ <li>
+ <div class="form-check ps-0 m-0 category-list-box">
+ <input class="checkbox_animated" type="checkbox"
+ id="flexCheckDefault6">
+ <label class="form-check-label" for="flexCheckDefault6">
+ <span class="name">500 تا 700 گرم</span>
+ <span class="number">(02)</span>
+ </label>
+ </div>
+ </li>
+
+ <li>
+ <div class="form-check ps-0 m-0 category-list-box">
+ <input class="checkbox_animated" type="checkbox"
+ id="flexCheckDefault7">
+ <label class="form-check-label" for="flexCheckDefault7">
+ <span class="name">700 تا 1 کیلوگرم</span>
+ <span class="number">(04)</span>
+ </label>
+ </div>
+ </li>
+
+ <li>
+ <div class="form-check ps-0 m-0 category-list-box">
+ <input class="checkbox_animated" type="checkbox"
+ id="flexCheckDefault8">
+ <label class="form-check-label" for="flexCheckDefault8">
+ <span class="name">120 - 150 گرم هر عدد وکیوم 2 عدد</span>
+ <span class="number">(06)</span>
+ </label>
+ </div>
+ </li>
+
+ <li>
+ <div class="form-check ps-0 m-0 category-list-box">
+ <input class="checkbox_animated" type="checkbox"
+ id="flexCheckDefault9">
+ <label class="form-check-label" for="flexCheckDefault9">
+ <span class="name">1 گیلوگرم</span>
+ <span class="number">(09)</span>
+ </label>
+ </div>
+ </li>
+
+ <li>
+ <div class="form-check ps-0 m-0 category-list-box">
+ <input class="checkbox_animated" type="checkbox"
+ id="flexCheckDefault10">
+ <label class="form-check-label" for="flexCheckDefault10">
+ <span class="name">1 تا 1.2 کیگوگرم</span>
+ <span class="number">(06)</span>
+ </label>
+ </div>
+ </li>
+
+ <li>
+ <div class="form-check ps-0 m-0 category-list-box">
+ <input class="checkbox_animated" type="checkbox"
+ id="flexCheckDefault11">
+ <label class="form-check-label" for="flexCheckDefault11">
+ <span class="name">مولتی بسته 2*24 عددی</span>
+ <span class="number">(03)</span>
+ </label>
+ </div>
+ </li>
+
+ <li>
+ <div class="form-check ps-0 m-0 category-list-box">
+ <input class="checkbox_animated" type="checkbox"
+ id="flexCheckDefault12">
+ <label class="form-check-label" for="flexCheckDefault12">
+ <span class="name">مولتی پک 2x6 عددی</span>
+ <span class="number">(04)</span>
+ </label>
+ </div>
+ </li>
+
+ <li>
+ <div class="form-check ps-0 m-0 category-list-box">
+ <input class="checkbox_animated" type="checkbox"
+ id="flexCheckDefault13">
+ <label class="form-check-label" for="flexCheckDefault13">
+ <span class="name">مولتی پک 4x6 عددی</span>
+ <span class="number">(05)</span>
+ </label>
+ </div>
+ </li>
+
+ <li>
+ <div class="form-check ps-0 m-0 category-list-box">
+ <input class="checkbox_animated" type="checkbox"
+ id="flexCheckDefault14">
+ <label class="form-check-label" for="flexCheckDefault14">
+ <span class="name">مولتی پک 5x6 عددی</span>
+ <span class="number">(09)</span>
+ </label>
+ </div>
+ </li>
+ </ul>
+ </div>
+ </div>
+</div>

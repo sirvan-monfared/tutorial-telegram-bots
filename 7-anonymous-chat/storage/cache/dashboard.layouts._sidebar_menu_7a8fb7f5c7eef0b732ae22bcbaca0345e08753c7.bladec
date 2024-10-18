@@ -1,0 +1,54 @@
+<div class="dashboard-left-sidebar">
+ <div class="close-button d-flex d-lg-none">
+ <button class="close-sidebar">
+ <i class="fa-solid fa-xmark"></i>
+ </button>
+ </div>
+ <div class="profile-box">
+ <div class="cover-image">
+ <img src="<?php echo \htmlentities(asset('front/images/inner-page/cover-img.jpg')??'', ENT_QUOTES, 'UTF-8', false); ?>" class="img-fluid blur-up lazyload"
+ alt="">
+ </div>
+
+ <div class="profile-contain">
+ <div class="profile-image">
+ <div class="position-relative">
+ <img src="<?php echo \htmlentities(asset('front/images/inner-page/user/1.jpg')??'', ENT_QUOTES, 'UTF-8', false); ?>"
+ class="blur-up lazyload update_img" alt="">
+ <div class="cover-icon">
+ <i class="fa-solid fa-pen">
+ <input type="file" onchange="readURL(this,0)">
+ </i>
+ </div>
+ </div>
+ </div>
+
+ <div class="profile-name">
+ <h3><?php echo \htmlentities(auth()->user()->fullName()??'', ENT_QUOTES, 'UTF-8', false); ?> </h3>
+ <h6 class="text-content"><?php echo \htmlentities(auth()->user()->phone??'', ENT_QUOTES, 'UTF-8', false); ?></h6>
+ </div>
+ </div>
+ </div>
+
+ <ul class="nav nav-pills user-nav-pills" id="pills-tab" role="tablist">
+
+ <li class="nav-item" role="presentation">
+ <a href="<?php echo \htmlentities(route('dashboard.order.index')??'', ENT_QUOTES, 'UTF-8', false); ?>"  class="nav-link <?php echo \htmlentities(routeIs('dashboard.order.index') ? 'active' : false??'', ENT_QUOTES, 'UTF-8', false); ?>" id="pills-order-tab">
+ <i data-feather="shopping-bag"></i>سفارشات
+ </a>
+ </li>
+
+ <li class="nav-item" role="presentation">
+ <a href="<?php echo \htmlentities(route('dashboard.profile.edit')??'', ENT_QUOTES, 'UTF-8', false); ?>"  class="nav-link <?php echo \htmlentities(routeIs('dashboard.profile.edit') ? 'active' : false??'', ENT_QUOTES, 'UTF-8', false); ?>" id="pills-order-tab">
+ <i data-feather="user"></i>
+ پروفایل
+ </a>
+ </li>
+ <li class="nav-item" role="presentation">
+ <a href="<?php echo \htmlentities(route('dashboard.password.edit')??'', ENT_QUOTES, 'UTF-8', false); ?>" class="nav-link <?php echo \htmlentities(routeIs('dashboard.password.edit') ? 'active' : false??'', ENT_QUOTES, 'UTF-8', false); ?>" id="pills-security-tab">
+ <i data-feather="shield"></i>
+ تغییر رمزعبور
+ </a>
+ </li>
+ </ul>
+</div>

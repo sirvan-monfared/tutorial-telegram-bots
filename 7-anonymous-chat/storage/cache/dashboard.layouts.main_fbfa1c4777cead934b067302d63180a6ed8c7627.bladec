@@ -1,0 +1,52 @@
+<?php $_shouldextend[2]=1; ?>
+
+<?php $this->startSection('content'); ?>
+ <!-- Breadcrumb Section Start -->
+ <section class="breadcrumb-section pt-0">
+ <div class="container-fluid-lg">
+ <div class="row">
+ <div class="col-12">
+ <div class="breadcrumb-contain">
+ <h2>حساب کاربری</h2>
+ <nav>
+ <ol class="breadcrumb mb-0">
+ <li class="breadcrumb-item">
+ <a href="index.html">
+ <i class="fa-solid fa-house"></i>
+ </a>
+ </li>
+ <li class="breadcrumb-item active">حساب کاربری</li>
+ </ol>
+ </nav>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+ <!-- Breadcrumb Section End -->
+
+ <!-- User Dashboard Section Start -->
+ <section class="user-dashboard-section section-b-space">
+ <div class="container-fluid-lg">
+ <div class="row">
+ <div class="col-xxl-3 col-lg-4">
+ <?php echo $this->runChild('dashboard.layouts._sidebar_menu'); ?>
+ </div>
+
+ <div class="col-xxl-9 col-lg-8">
+ <button class="btn left-dashboard-show btn-animation btn-md fw-bold d-block mb-4 d-lg-none">نمایش
+ منو</button>
+ <div class="dashboard-right-sidebar">
+ <div class="tab-content" id="pills-tabContent">
+ <div class="tab-pane fade show active" id="pills-dashboard" role="tabpanel">
+ <?php echo $this->yieldContent('dashboard-content'); ?>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+ <!-- User Dashboard Section End -->
+<?php $this->stopSection(); ?>
+<?php if (isset($_shouldextend[2])) { echo $this->runChild('front.layouts.main'); } ?>

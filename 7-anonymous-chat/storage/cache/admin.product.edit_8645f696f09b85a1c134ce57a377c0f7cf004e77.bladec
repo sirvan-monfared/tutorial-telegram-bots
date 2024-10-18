@@ -1,0 +1,51 @@
+<?php $_shouldextend[1]=1; ?>
+
+<?php $this->startSection('css'); ?>
+ <link rel="stylesheet" type="text/css" href="<?php echo \htmlentities(asset('admin/css/select2.min.css')??'', ENT_QUOTES, 'UTF-8', false); ?>">
+<?php $this->stopSection(); ?>
+
+<?php $this->startSection('content'); ?>
+ <div class="row">
+ <div class="col-12">
+ <div class="row">
+
+ <?php echo $this->runChild('partials._alerts'); ?>
+
+ <div class="col-sm-8 m-auto">
+ <form action="<?php echo \htmlentities(route('admin.product.update', ['id' => $product->id])??'', ENT_QUOTES, 'UTF-8', false); ?>" method="POST"
+ enctype="multipart/form-data" class="theme-form theme-form-2 mega-form">
+ <input type='hidden' name='_method' value='<?php echo 'PUT'; ?>'/>
+ <?php echo $this->runChild('partials._csrf'); ?>
+
+ <?php echo $this->runChild('admin.product._form', [
+ 'title' => 'ویرایش محصول'
+ ]); ?>
+
+ </form>
+ </div>
+ </div>
+ </div>
+ </div>
+<?php $this->stopSection(); ?>
+
+
+<?php $this->startSection('scripts'); ?>
+ <script src="<?php echo \htmlentities(asset('admin/js/ckeditor.js')??'', ENT_QUOTES, 'UTF-8', false); ?>"></script>
+ <script src="<?php echo \htmlentities(asset('admin/js/ckeditor-custom.js')??'', ENT_QUOTES, 'UTF-8', false); ?>"></script>
+
+ <script src="<?php echo \htmlentities(asset('admin/js/select2.min.js')??'', ENT_QUOTES, 'UTF-8', false); ?>"></script>
+ <script src="<?php echo \htmlentities(asset('admin/js/select2-custom.js')??'', ENT_QUOTES, 'UTF-8', false); ?>"></script>
+<?php $this->stopSection(); ?>
+
+<?php $this->startSection('js'); ?>
+ <script>
+ const custom_fields_placeholder = document.getElementById('custom-fields-placeholder');
+ const template = document.getElementById('custom-fields-template');
+ const add_custom_field_button = document.getElementById('add-custom-fields');
+
+ add_custom_field_button.addEventListener('click', () => {
+ custom_fields_placeholder.append(document.importNode(template.content, true));
+ })
+ </script>
+<?php $this->stopSection(); ?>
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('admin.layouts.main'); } ?>

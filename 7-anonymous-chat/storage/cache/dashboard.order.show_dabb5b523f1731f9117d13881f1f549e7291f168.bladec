@@ -1,0 +1,129 @@
+<?php $_shouldextend[1]=1; ?>
+
+<?php $this->startSection('dashboard-content'); ?>
+ <section class="breadcrumb-section pt-0">
+ <div class="container-fluid-lg p-0">
+ <div class="row">
+ <?php echo $this->runChild('partials._alerts'); ?>
+
+ <?php echo $this->runChild('dashboard.order._payment_success'); ?>
+ </div>
+ </div>
+ </section>
+ <!-- Breadcrumb Section End -->
+
+ <div class="order-detail">
+ <?php echo $this->runChild('admin.order._shipment_tracking'); ?>
+ </div>
+
+ <!-- Cart Section Start -->
+ <section class="cart-section section-b-space">
+ <div class="container-fluid-lg p-0">
+ <div class="row g-sm-4 g-3">
+ <div class="col-xxl-9 col-lg-8">
+ <div class="cart-table order-table order-table-2">
+ <div class="table-responsive">
+ <table class="table mb-0">
+ <tbody>
+
+ <?php $__currentLoopData = $order->items(); $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $item): $loop = $this->incrementLoopIndices();  ?>
+ <tr>
+ <td class="product-detail">
+ <div class="product border-0">
+ <a href="<?php echo \htmlentities(route('products.show', ['id' => $item->product_id])??'', ENT_QUOTES, 'UTF-8', false); ?>" class="product-image">
+ <img src="<?php echo \htmlentities(asset('front/images/vegetable/product/1.png')??'', ENT_QUOTES, 'UTF-8', false); ?>"
+ class="img-fluid blur-up lazyload" alt="">
+ </a>
+ <div class="product-detail">
+ <ul>
+ <li class="name">
+ <a href="<?php echo \htmlentities(route('products.show', ['id' => $item->product_id])??'', ENT_QUOTES, 'UTF-8', false); ?>"><?php echo \htmlentities(str_limit($item->product_name, 25)??'', ENT_QUOTES, 'UTF-8', false); ?></a>
+ </li>
+ </ul>
+ </div>
+ </div>
+ </td>
+
+ <td class="price">
+ <h4 class="table-title text-content">قیمت</h4>
+ <h6 class="theme-color"><?php echo \htmlentities(priceFormat($item->unit_price)??'', ENT_QUOTES, 'UTF-8', false); ?></h6>
+ </td>
+
+ <td class="quantity">
+ <h4 class="table-title text-content">تعداد</h4>
+ <h4 class="text-title"><?php echo \htmlentities($item->quantity??'', ENT_QUOTES, 'UTF-8', false); ?></h4>
+ </td>
+
+ <td class="subtotal">
+ <h4 class="table-title text-content">جمع کل</h4>
+ <h5><?php echo \htmlentities(priceFormat($item->quantity * $item->unit_price)??'', ENT_QUOTES, 'UTF-8', false); ?></h5>
+ </td>
+ </tr>
+
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+
+ </tbody>
+ </table>
+ </div>
+ </div>
+ </div>
+
+ <div class="col-xxl-3 col-lg-4">
+ <div class="row g-4">
+ <div class="col-lg-12 col-sm-6">
+ <div class="summery-box">
+ <div class="summery-header">
+ <h3>جزئیات خرید</h3>
+ <h5 class="ms-auto theme-color">(<?php echo \htmlentities(count($order->items())??'', ENT_QUOTES, 'UTF-8', false); ?> آیتم)</h5>
+ </div>
+
+ <ul class="summery-contain">
+ <li>
+ <h4>جمع خرید</h4>
+ <h4 class="price"><?php echo \htmlentities(priceFormat($order->amount)??'', ENT_QUOTES, 'UTF-8', false); ?></h4>
+ </li>
+
+ <li>
+ <h4>سود شما</h4>
+ <h4 class="price theme-color">0 تومان</h4>
+ </li>
+
+ <li>
+ <h4>کد تخفیف</h4>
+ <h4 class="price text-danger">0 تومان</h4>
+ </li>
+ </ul>
+
+ <ul class="summery-total">
+ <li class="list-total">
+ <h4>جمع کل (تومان)</h4>
+ <h4 class="price"><?php echo \htmlentities(priceFormat($order->amount)??'', ENT_QUOTES, 'UTF-8', false); ?></h4>
+ </li>
+ </ul>
+ </div>
+ </div>
+
+ <?php if($order->isPaid()): ?>
+
+ <div class="col-lg-12 col-sm-6">
+ <div class="summery-box">
+ <div class="summery-header d-block">
+ <h3>آدرس تحویل</h3>
+ </div>
+
+ <ul class="summery-contain pb-0 border-bottom-0">
+ <li class="d-block">
+ <h4><?php echo \htmlentities($order->shipment()?->address??'', ENT_QUOTES, 'UTF-8', false); ?></h4>
+ </li>
+ </ul>
+ </div>
+ <?php endif; ?>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+<?php $this->stopSection(); ?>
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('dashboard.layouts.main'); } ?>

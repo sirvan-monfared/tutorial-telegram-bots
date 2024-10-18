@@ -1,0 +1,36 @@
+<div id="filters">
+ <form method="GET" action="<?php echo \htmlentities(route('admin.product.index')??'', ENT_QUOTES, 'UTF-8', false); ?>">
+
+ <div class="d-flex align-items-start gap-4">
+ <label>نام محصول :
+ <input type="text" class="form-control" name="name" aria-controls="table_id" value="<?php echo \htmlentities($_GET['name'] ?? null??'', ENT_QUOTES, 'UTF-8', false); ?>">
+ </label>
+ <div class="d-flex flex-column gap-1">
+ <label>قیمت از : <input type="text" class="form-control" placeholder="" name="price_from"
+ aria-controls="table_id"  value="<?php echo \htmlentities($_GET['price_from'] ?? null??'', ENT_QUOTES, 'UTF-8', false); ?>"></label>
+ <label>تا : <input type="text" class="form-control" placeholder="" aria-controls="table_id" name="price_to" value="<?php echo \htmlentities($_GET['price_to'] ?? null??'', ENT_QUOTES, 'UTF-8', false); ?>"></label>
+ </div>
+ <div class="d-flex flex-column gap-1">
+ <label>تعداد در انبار از : <input type="text" class="form-control" placeholder="" name="stock_from"  value="<?php echo \htmlentities($_GET['stock_from'] ?? null??'', ENT_QUOTES, 'UTF-8', false); ?>"
+ aria-controls="table_id"></label>
+ <label>تا : <input type="text" class="form-control" placeholder="" aria-controls="table_id" name="stock_to"  value="<?php echo \htmlentities($_GET['stock_to'] ?? null??'', ENT_QUOTES, 'UTF-8', false); ?>"></label>
+ </div>
+ <label>دسته بندی :
+ <select name="category_id" class="js-example-basic-single w-100">
+ <option value="">همه دسته ها</option>
+ <?php $__currentLoopData = $categories; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $category): $loop = $this->incrementLoopIndices();  ?>
+ <option value="<?php echo \htmlentities($category->id??'', ENT_QUOTES, 'UTF-8', false); ?>" <?php if((int) ($_GET['category_id'] ?? null) === $category->id) echo 'selected'; ?>><?php echo \htmlentities($category->name??'', ENT_QUOTES, 'UTF-8', false); ?></option>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ </select>
+ </label>
+ <div type="submit" class=" mt-4 mx-auto d-flex flex-column gap-1">
+ <button class="btn btn-info d-flex align-items-center gap-2">
+ <i class="fa fa-search"></i>
+ <span>اعمال فیلترها</span>
+ </button>
+ <a href="<?php echo \htmlentities(route('admin.product.index')??'', ENT_QUOTES, 'UTF-8', false); ?>" class="d-block text-center">حذف فیلترها</a>
+ </div>
+ </div>
+ </form>
+</div>

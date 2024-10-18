@@ -1,0 +1,13 @@
+<ul class="rating">
+ <?php for($i = 1; $i <= (int) $stars; $i++): ?>
+ <li>
+ <i data-feather="star" class="fill"></i>
+ </li>
+ <?php endfor; ?>
+
+ <?php for($i = $stars + 1; $i <=5; $i++): ?>
+ <li>
+ <i data-feather="star"></i>
+ </li>
+ <?php endfor; ?>
+</ul>

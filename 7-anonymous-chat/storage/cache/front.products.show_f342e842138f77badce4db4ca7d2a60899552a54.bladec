@@ -1,0 +1,269 @@
+<?php $_shouldextend[1]=1; ?>
+
+<?php $this->startSection('content'); ?>
+
+ <!-- Breadcrumb Section Start -->
+ <section class="breadcrumb-section pt-0">
+ <div class="container-fluid-lg">
+ <div class="row">
+ <div class="col-12">
+ <div class="breadcrumb-contain">
+ <h2><?php echo \htmlentities($product->name??'', ENT_QUOTES, 'UTF-8', false); ?></h2>
+ <nav>
+ <ol class="breadcrumb mb-0">
+ <li class="breadcrumb-item">
+ <a href="<?php echo \htmlentities(route('home')??'', ENT_QUOTES, 'UTF-8', false); ?>">
+ <i class="fa-solid fa-house"></i>
+ </a>
+ </li>
+
+ <li class="breadcrumb-item active"><?php echo \htmlentities($product->name??'', ENT_QUOTES, 'UTF-8', false); ?></li>
+ </ol>
+ </nav>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+ <!-- Breadcrumb Section End -->
+
+ <!-- Product Left Sidebar Start -->
+ <section class="product-section">
+ <div class="container-fluid-lg">
+ <div class="row">
+
+ <?php echo $this->runChild('partials._alerts'); ?>
+
+ <div class="col-sm-12 wow fadeInUp">
+ <div class="row g-4">
+ <div class="col-xl-5 wow fadeInUp">
+ <div class="product-left-box">
+ <div class="row g-sm-4 g-2">
+ <div class="col-12">
+ <div class="product-main no-arrow">
+ <div>
+ <div class="slider-image">
+
+ <img src="<?php echo \htmlentities($product->featuredImageOrDefault()??'', ENT_QUOTES, 'UTF-8', false); ?>"
+ id="img-1"
+ data-zoom-image="<?php echo \htmlentities($product->featuredImageOrDefault()??'', ENT_QUOTES, 'UTF-8', false); ?>"
+ class="
+ img-fluid image_zoom_cls-0 blur-up lazyload" alt="">
+ </div>
+ </div>
+
+ <?php $__currentLoopData = $product->galleryImages(); $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $image): $loop = $this->incrementLoopIndices();  ?>
+ <div>
+ <div class="slider-image">
+ <img src="<?php echo \htmlentities($image->path()??'', ENT_QUOTES, 'UTF-8', false); ?>"
+ data-zoom-image="<?php echo \htmlentities($image->path()??'', ENT_QUOTES, 'UTF-8', false); ?>"
+ class="
+ img-fluid image_zoom_cls-1 blur-up lazyload" alt="">
+ </div>
+ </div>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+
+
+
+
+ </div>
+ </div>
+
+ <div class="col-12">
+ <div class="left-slider-image left-slider no-arrow slick-top">
+
+ <div>
+ <div class="sidebar-image">
+ <img src="<?php echo \htmlentities($product->featuredImageOrDefault()??'', ENT_QUOTES, 'UTF-8', false); ?>"
+ class="img-fluid blur-up lazyload" alt="">
+ </div>
+ </div>
+
+
+ <?php $__currentLoopData = $product->galleryImages(); $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $image): $loop = $this->incrementLoopIndices();  ?>
+ <div>
+ <div class="sidebar-image">
+ <img src="<?php echo \htmlentities($image->path()??'', ENT_QUOTES, 'UTF-8', false); ?>"
+ class="img-fluid blur-up lazyload" alt="">
+ </div>
+ </div>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <div class="col-xl-7 wow fadeInUp">
+ <div class="right-box-contain">
+ <?php if($product->discount()): ?>
+ <h6 class="offer-top"><?php echo \htmlentities($product->discount()??'', ENT_QUOTES, 'UTF-8', false); ?>% تخفیف</h6>
+ <?php endif; ?>
+ <h2 class="name"><?php echo \htmlentities($product->name??'', ENT_QUOTES, 'UTF-8', false); ?></h2>
+ <div class="price-rating">
+ <h3 class="theme-color price"><?php echo \htmlentities($product->showPrice()??'', ENT_QUOTES, 'UTF-8', false); ?>
+
+ <?php if($product->prev_price): ?>
+ <del class="text-content"><?php echo \htmlentities(number_format($product->prev_price)??'', ENT_QUOTES, 'UTF-8', false); ?></del>
+ <?php endif; ?>
+ <?php if($product->discount()): ?>
+ <span class="offer theme-color">(<?php echo \htmlentities($product->discount()??'', ENT_QUOTES, 'UTF-8', false); ?>% تخفیف)</span>
+ <?php endif; ?>
+ </h3>
+ <div class="product-rating custom-rate">
+ <?php if($product->averageRating()): ?>
+ <ul class="rating">
+ <?php  $this->startComponent('front.components.rating', ['stars' => $product->averageRating()]); ?>
+ <?php echo $this->renderComponent(); ?>
+ </ul>
+
+ <span class="review"><?php echo \htmlentities($product->commentsCount()??'', ENT_QUOTES, 'UTF-8', false); ?> دیدگاه </span>
+ <?php endif; ?>
+ </div>
+ </div>
+
+ <div class="dynamic-checkout">
+ <form action="<?php echo \htmlentities(route('cart.store')??'', ENT_QUOTES, 'UTF-8', false); ?>" method="POST">
+ <?php echo $this->runChild('partials._csrf'); ?>
+
+ <input type="hidden" name="product_id" value="<?php echo \htmlentities($product->id??'', ENT_QUOTES, 'UTF-8', false); ?>">
+
+ <button class="border-theme-color btn btn-md scroll-button" type="submit">
+ <div><i class="ri-shopping-cart-line me-1"></i> افزودن به سبد خرید</div>
+ </button>
+ </form>
+ </div>
+
+ <div class="buy-box d-flex justify-content-between">
+ <div class="d-flex">
+ <a href="wishlist.html">
+ <i data-feather="heart"></i>
+ <span>علاقه‌مندی‌ها</span>
+ </a>
+
+ <a href="compare.html">
+ <i data-feather="shuffle"></i>
+ <span>مقایسه</span>
+ </a>
+ </div>
+
+ <div>
+ آخرین ویرایش: <?php echo \htmlentities(jdate($product->updated_at)->format('Y/m/d')??'', ENT_QUOTES, 'UTF-8', false); ?>
+
+ </div>
+ </div>
+
+ </div>
+ </div>
+ </div>
+ </div>
+
+ </div>
+ </div>
+ </section>
+ <!-- Product Left Sidebar End -->
+
+
+ <!-- Nav Tab Section Start -->
+ <section>
+ <div class="container-fluid-lg">
+ <div class="row">
+ <div class="col-12">
+ <div class="product-section-box m-0">
+ <ul class="nav nav-tabs custom-nav" id="myTab" role="tablist">
+ <li class="nav-item" role="presentation">
+ <button class="nav-link active" id="description-tab" data-bs-toggle="tab"
+ data-bs-target="#description" type="button" role="tab">توضیحات
+ </button>
+ </li>
+
+ <?php if($product->customFields()): ?>
+ <li class="nav-item" role="presentation">
+ <button class="nav-link" id="info-tab" data-bs-toggle="tab" data-bs-target="#info"
+ type="button" role="tab">اطلاعات محصول
+ </button>
+ </li>
+ <?php endif; ?>
+
+ <li class="nav-item" role="presentation">
+ <button class="nav-link" id="review-tab" data-bs-toggle="tab" data-bs-target="#review"
+ type="button" role="tab">بازخورد
+ </button>
+ </li>
+ </ul>
+
+ <div class="tab-content custom-tab" id="myTabContent">
+ <div class="tab-pane fade show active" id="description" role="tabpanel">
+ <div class="product-description">
+ <?php echo $product->description; ?>
+
+ </div>
+ </div>
+
+ <?php if($product->customFields()): ?>
+ <div class="tab-pane fade" id="info" role="tabpanel">
+ <div class="table-responsive">
+ <table class="table info-table">
+ <tbody>
+ <?php $__currentLoopData = $product->customFields(); $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $field): $loop = $this->incrementLoopIndices();  ?>
+ <tr>
+ <td><?php echo \htmlentities($field->name??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+ <td><?php echo \htmlentities($field->value??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+ </tr>
+
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ </tbody>
+ </table>
+ </div>
+ </div>
+ <?php endif; ?>
+
+ <div class="tab-pane fade" id="review" role="tabpanel">
+ <div class="review-box">
+ <?php echo $this->runChild('front.products._comments'); ?>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+ <!-- Nav Tab Section End -->
+
+ <!-- Related Product Section Start -->
+ <section class="product-list-section section-b-space">
+ <div class="container-fluid-lg">
+ <div class="title">
+ <h2>محصولات مرتبط</h2>
+ <span class="title-leaf">
+ <svg class="icon-width">
+ <use xlink:href="assets/svg/leaf.svg#leaf"></use>
+ </svg>
+ </span>
+ </div>
+ <div class="row">
+ <div class="col-12">
+ <div class="slider-6_1 product-wrapper">
+
+ <?php $__currentLoopData = $related_products; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $related_product): $loop = $this->incrementLoopIndices();  ?>
+ <?php  $this->startComponent('front.components.product', ['product' => $related_product]); ?>
+ <?php echo $this->renderComponent(); ?>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+ <!-- Related Product Section End -->
+<?php $this->stopSection(); ?>
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('front.layouts.main', [
+ 'page_title' => $product->seo_title ?? $product->name,
+ 'page_description' => $product->seo_description ?? str_limit($product->description, 150),
+ 'page_keywords' => $product->seo_keywords
+]); } ?>

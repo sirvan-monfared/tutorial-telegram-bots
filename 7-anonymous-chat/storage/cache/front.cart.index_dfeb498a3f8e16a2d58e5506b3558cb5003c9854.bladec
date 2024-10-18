@@ -1,0 +1,193 @@
+<?php $_shouldextend[1]=1; ?>
+
+<?php $this->startSection('content'); ?>
+ <!-- Breadcrumb Section Start -->
+ <section class="breadcrumb-section pt-0">
+ <div class="container-fluid-lg">
+ <div class="row">
+ <div class="col-12">
+ <div class="breadcrumb-contain">
+ <h2>سبد خرید</h2>
+ <nav>
+ <ol class="breadcrumb mb-0">
+ <li class="breadcrumb-item">
+ <a href="index.html">
+ <i class="fa-solid fa-house"></i>
+ </a>
+ </li>
+ <li class="breadcrumb-item active">سبد خرید</li>
+ </ol>
+ </nav>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+ <!-- Breadcrumb Section End -->
+
+ <!-- Cart Section Start -->
+ <section class="cart-section section-b-space">
+ <div class="container-fluid-lg">
+
+ <?php echo $this->runChild('partials._alerts'); ?>
+
+ <div class="row g-sm-5 g-3">
+ <div class="col-xxl-9">
+ <div class="cart-table">
+ <div class="table-responsive-xl">
+ <table class="table">
+
+ <tbody>
+
+ <?php if(! $items->count()): ?>
+ <tr class="product-box-contain">
+ <td class="product-detail">
+ <div class="product border-0">
+ <h3>هیچ آیتمی در سبد خرید شما وجود ندارد</h3>
+ </div>
+ </td>
+ </tr>
+ <?php endif; ?>
+
+ <?php $__currentLoopData = $items; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $item): $loop = $this->incrementLoopIndices();  ?>
+ <tr class="product-box-contain">
+ <td class="product-detail">
+ <div class="product border-0">
+ <a href="<?php echo \htmlentities($item->product()?->viewLink()??'', ENT_QUOTES, 'UTF-8', false); ?>"
+ class="product-image">
+ <img src="<?php echo \htmlentities($item->product()?->featuredImageOrDefault()??'', ENT_QUOTES, 'UTF-8', false); ?>"
+ class="img-fluid blur-up lazyload" alt="<?php echo \htmlentities($item->name??'', ENT_QUOTES, 'UTF-8', false); ?>">
+ </a>
+ <div class="product-detail">
+ <ul>
+ <li class="name">
+ <a href="<?php echo \htmlentities($item->product()?->viewLink()??'', ENT_QUOTES, 'UTF-8', false); ?>"><?php echo \htmlentities(str_limit($item->name, 25)??'', ENT_QUOTES, 'UTF-8', false); ?></a>
+ </li>
+ </ul>
+ </div>
+ </div>
+ </td>
+
+ <td class="price">
+ <h4 class="table-title text-content">قیمت</h4>
+ <h5><?php echo \htmlentities(priceFormat($item->price)??'', ENT_QUOTES, 'UTF-8', false); ?>
+
+ <del class="text-content">45.680</del>
+ </h5>
+ <h6 class="theme-color">سود شما : 20.680</h6>
+ </td>
+
+ <td class="quantity">
+ <h4 class="table-title text-content">تعداد</h4>
+ <div class="quantity-price">
+ <div class="cart_qty">
+ <div class="input-group">
+ <button type="button" class="btn qty-left-minus"
+ data-type="minus" data-field="">
+ <i class="fa fa-minus ms-0"></i>
+ </button>
+ <input class="form-control input-number qty-input" type="text"
+ name="quantity" value="<?php echo \htmlentities($item->qty??'', ENT_QUOTES, 'UTF-8', false); ?>">
+ <button type="button" class="btn qty-right-plus"
+ data-type="plus" data-field="">
+ <i class="fa fa-plus ms-0"></i>
+ </button>
+ </div>
+ </div>
+ </div>
+ </td>
+
+ <td class="subtotal">
+ <h4 class="table-title text-content">جمع کل</h4>
+ <h5><?php echo \htmlentities(priceFormat($item->totalPrice())??'', ENT_QUOTES, 'UTF-8', false); ?></h5>
+ </td>
+
+ <td class="save-remove">
+ <h4 class="table-title text-content">عملیات</h4>
+ <form action="<?php echo \htmlentities(route('cart.delete', ['id' => $item->id])??'', ENT_QUOTES, 'UTF-8', false); ?>" method="POST">
+ <?php echo $this->runChild('partials._csrf'); ?>
+ <input type='hidden' name='_method' value='<?php echo 'DELETE'; ?>'/>
+ <button class="remove close_button">حذف</button>
+ </form>
+ </td>
+ </tr>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ </tbody>
+ </table>
+ </div>
+ </div>
+ </div>
+
+ <div class="col-xxl-3">
+ <div class="summery-box p-sticky">
+ <form action="<?php echo \htmlentities(route('checkout.pay')??'', ENT_QUOTES, 'UTF-8', false); ?>" method="POST">
+ <?php echo $this->runChild('partials._csrf'); ?>
+ <div class="summery-header">
+ <h3>صورت حساب</h3>
+ </div>
+
+ <div class="summery-contain">
+ <div class="coupon-cart">
+ <h6 class="text-content mb-2">کد تخفیف</h6>
+ <div class="mb-3 coupon-box input-group">
+ <input type="email" class="form-control" id="exampleFormControlInput1"
+ placeholder="کد تخفیف را وارد کنید">
+ <button class="btn-apply">ثبت</button>
+ </div>
+ </div>
+ <ul>
+ <li>
+ <h4>جمع کل</h4>
+ <h4 class="price"><?php echo \htmlentities(priceFormat(cart()->sum())??'', ENT_QUOTES, 'UTF-8', false); ?></h4>
+ </li>
+
+ <li>
+ <h4>کد تخفیف</h4>
+ <h4 class="price">(-) 0.00</h4>
+ </li>
+
+ <li class="align-items-start">
+ <h4>هزینه پست</h4>
+ <h4 class="price text-end">0 تومان</h4>
+ </li>
+ <?php if(auth()->check()): ?>
+ <li class="d-block">
+ <label for="address">آدرس ارسال</label>
+ <textarea name="address" id="address" class="form-control" rows="5"><?php echo \htmlentities(old('address', auth()->user()->address)??'', ENT_QUOTES, 'UTF-8', false); ?></textarea>
+ <p class="help-block fs-6 text-danger"><?php echo \htmlentities($errors['address'] ?? null??'', ENT_QUOTES, 'UTF-8', false); ?></p>
+ </li>
+ <?php endif; ?>
+ </ul>
+ </div>
+
+ <ul class="summery-total">
+ <li class="list-total border-top-0">
+ <h4>جمع نهایی</h4>
+ <h4 class="price theme-color"><?php echo \htmlentities(priceFormat(cart()->sum())??'', ENT_QUOTES, 'UTF-8', false); ?> </h4>
+ </li>
+ </ul>
+
+ <div class="button-group cart-button">
+ <ul>
+ <li>
+ <button type="submit" class="btn btn-animation proceed-btn fw-bold">پرداخت</button>
+ </li>
+
+ <li>
+ <a href="<?php echo \htmlentities(route('home')??'', ENT_QUOTES, 'UTF-8', false); ?>"
+ class="btn btn-light shopping-button text-dark">
+ <i class="fa-solid fa-arrow-right-long"></i>بازگشت به فروشگاه
+ </a>
+ </li>
+ </ul>
+ </div>
+ </form>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+ <!-- Cart Section End -->
+<?php $this->stopSection(); ?>
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('front.layouts.main'); } ?>

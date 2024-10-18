@@ -1,0 +1,88 @@
+<form action="<?php echo \htmlentities(route('search')??'', ENT_QUOTES, 'UTF-8', false); ?>" method="GET">
+ <div class="show-button">
+ <div class="top-filter-menu-2">
+ <div class="sidebar-filter-menu" data-bs-toggle="collapse"
+ data-bs-target="#collapseExample">
+ <a href="javascript:void(0)"><i class="fa-solid fa-filter"></i> منوی فیلتر</a>
+ </div>
+
+ <div class="ms-auto d-flex align-items-center">
+ </div>
+ </div>
+ </div>
+
+ <div class="top-filter-category" id="collapseExample">
+ <div class="row g-sm-4 g-3">
+ <div class="col-xl-3 col-md-6">
+ <div class="category-title">
+ <h3>دسته ها</h3>
+ </div>
+ <ul class="category-list custom-padding custom-height">
+ <?php $__currentLoopData = $categories; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $category): $loop = $this->incrementLoopIndices();  ?>
+ <li>
+ <div class="form-check ps-0 m-0 category-list-box">
+ <input class="checkbox_animated" name="category_id[]"
+ <?php if(in_array($category->id, $_GET['category_id'] ?? [])) echo 'checked'; ?> id="category_id_<?php echo \htmlentities($category->id??'', ENT_QUOTES, 'UTF-8', false); ?>"
+ value="<?php echo \htmlentities($category->id??'', ENT_QUOTES, 'UTF-8', false); ?>" type="checkbox">
+ <label class="form-check-label" for="category_id_<?php echo \htmlentities($category->id??'', ENT_QUOTES, 'UTF-8', false); ?>">
+ <span class="name"><?php echo \htmlentities($category->name??'', ENT_QUOTES, 'UTF-8', false); ?></span>
+ </label>
+ </div>
+ </li>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+
+
+ </ul>
+ </div>
+
+ <div class="col-xl-3 col-md-6">
+ <div class="category-title">
+ <h3>قیمت</h3>
+ </div>
+ <div class="range-slider">
+ <label>از: </label>
+ <input type="text" name="price_from" class="form-control" value="<?php echo \htmlentities($_GET['price_from'] ?? null??'', ENT_QUOTES, 'UTF-8', false); ?>">
+ </div>
+ <div class="range-slider mt-2">
+ <label>تا: </label>
+ <input type="text" name="price_to" class="form-control" value="<?php echo \htmlentities($_GET['price_to'] ?? null??'', ENT_QUOTES, 'UTF-8', false); ?>">
+ </div>
+ </div>
+
+ <div class="col-xl-3 col-md-6">
+ <div class="category-title">
+ <h3> کلمه کلیدی</h3>
+ </div>
+
+ <div>
+ <label for="">جستجو کنید ...</label>
+ <input type="text" class="form-control" name="keyword" value="<?php echo \htmlentities($_GET['keyword'] ?? null??'', ENT_QUOTES, 'UTF-8', false); ?>">
+ </div>
+ </div>
+
+ <div class="col-xl-3 col-md-6 d-flex flex-column justify-content-between">
+ <div>
+ <div class="category-title">
+ <h3>مرتب سازی</h3>
+ </div>
+
+ <div>
+ <label for="order">بر اساس:</label>
+ <select name="order" id="order" class="form-control">
+ <option value="default" selected>پیش فرض</option>
+ <option value="price_desc" <?php if($_GET['order'] === 'price_desc') echo 'selected'; ?>>بالاترین قیمت</option>
+ <option value="price_asc" <?php if($_GET['order'] === 'price_asc') echo 'selected'; ?>>پایین ترین قیمت</option>
+ <option value="date_desc" <?php if($_GET['order'] === 'date_desc') echo 'selected'; ?>>تاریخ نزولی</option>
+ <option value="date_asc" <?php if($_GET['order'] === 'date_asc') echo 'selected'; ?>>تاریخ صعودی</option>
+ </select>
+ </div>
+ </div>
+
+ <button type="submit" class="btn theme-bg-color btn-xs">فیلتر</button>
+ </div>
+ </div>
+ </div>
+
+
+</form>

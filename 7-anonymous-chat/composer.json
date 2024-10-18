@@ -1,0 +1,29 @@
+{
+    "name": "dev/php-tutorial",
+    "authors": [
+        {
+            "name": "sirvan monfared",
+            "email": "test@test.com"
+        }
+    ],
+    "require": {
+        "illuminate/collections": "^10.48",
+        "nesbot/carbon": "^3.2",
+        "altorouter/altorouter": "^2.0",
+        "eftec/bladeone": "^4.13",
+        "ext-pdo": "*",
+        "ext-curl": "*",
+        "symfony/var-dumper": "^6.4",
+        "morilog/jalali": "3.*",
+        "vlucas/phpdotenv": "^5.6",
+        "eleirbag89/telegrambotphp": "^1.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/"
+        },
+        "files": [
+            "App/helpers.php"
+        ]
+    }
+}

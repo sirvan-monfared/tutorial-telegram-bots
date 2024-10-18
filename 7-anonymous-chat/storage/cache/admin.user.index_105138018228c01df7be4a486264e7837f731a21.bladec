@@ -1,0 +1,51 @@
+<?php $_shouldextend[1]=1; ?>
+
+<?php $this->startSection('content'); ?>
+ <div class="pd-20 card-box mb-30">
+
+ <?php echo $this->runChild('_flash'); ?>
+
+ <div class="clearfix mb-20">
+ <div class="pull-left">
+ <h4 class="text-blue h4">Users List</h4>
+ </div>
+ <div class="pull-right">
+ <a href="<?php echo \htmlentities(route('admin.user.create')??'', ENT_QUOTES, 'UTF-8', false); ?>" class="btn btn-primary btn-sm scroll-click" ><i class="fa fa-code"></i> Create user</a>
+ </div>
+ </div>
+ <table class="table table-bordered">
+ <thead>
+ <tr>
+ <th scope="col">id</th>
+ <th scope="col">name</th>
+ <th scope="col">chat id</th>
+ <th scope="col">Actions</th>
+ </tr>
+ </thead>
+ <tbody>
+ <?php $__currentLoopData = $users; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $user): $loop = $this->incrementLoopIndices();  ?>
+ <tr>
+ <th scope="row"><?php echo \htmlentities($user->id??'', ENT_QUOTES, 'UTF-8', false); ?></th>
+ <td><?php echo \htmlentities($user->name??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+ <td><?php echo \htmlentities($user->chat_id??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+ <td class="d-flex">
+ <a class="btn btn-info" href="<?php echo \htmlentities(route('admin.user.edit', ['id' => $user->id])??'', ENT_QUOTES, 'UTF-8', false); ?>">Edit</a>
+
+ <form method="POST" action="<?php echo \htmlentities(route('admin.user.destroy', ['id' => $user->id])??'', ENT_QUOTES, 'UTF-8', false); ?>">
+ <?php echo $this->runChild('_csrf'); ?>
+ <input type='hidden' name='_method' value='<?php echo 'DELETE'; ?>'/>
+
+ <button class="btn btn-danger">Delete</button>
+ </form>
+ </td>
+ </tr>
+
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+
+
+ </tbody>
+ </table>
+ </div>
+<?php $this->stopSection(); ?>
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('admin.layouts.master'); } ?>
